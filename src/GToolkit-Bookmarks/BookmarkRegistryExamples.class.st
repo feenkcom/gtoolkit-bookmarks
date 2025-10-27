@@ -13,7 +13,7 @@ BookmarkRegistryExamples >> gtBookPageGetsBookmark [
 	db := LeDatabase gtBook.
 	gtPage := db pageNamed: 'Glamorous Toolkit'.
 	registry := self testRegistry.
-	registry addBookmarkFor: gtPage.
+	registry ensureBookmarkFor: gtPage.
 	bookmarkPage := registry bookmarkPageFor: gtPage.
 	self assert: (registry hasBookmarkFor: gtPage).
 	^ bookmarkPage
