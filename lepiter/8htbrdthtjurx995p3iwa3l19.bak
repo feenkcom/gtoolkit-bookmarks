@@ -88,45 +88,7 @@
 							"__type" : "textSnippet",
 							"children" : {
 								"__type" : "snippets",
-								"items" : [
-									{
-										"__type" : "textSnippet",
-										"children" : {
-											"__type" : "snippets",
-											"items" : [ ]
-										},
-										"createEmail" : {
-											"__type" : "email",
-											"emailString" : "<unknown>"
-										},
-										"createTime" : {
-											"__type" : "time",
-											"time" : {
-												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T09:29:58.047085+01:00"
-											}
-										},
-										"editEmail" : {
-											"__type" : "email",
-											"emailString" : "<unknown>"
-										},
-										"editTime" : {
-											"__type" : "time",
-											"time" : {
-												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T09:30:43.435753+01:00"
-											}
-										},
-										"uid" : {
-											"__type" : "uid",
-											"uidString" : "K2ILcYH+DQCuMhaYBv18jw=="
-										},
-										"paragraphStyle" : {
-											"__type" : "textStyle"
-										},
-										"string" : "Keeps track of which bookmarks exist for a source database in the target database where they are stored.\nNormally a singleton, with the target being the private database of the user.\nCan also have a testing instance that uses in-memory databases.\nSend #default or #uniqueInstance, and #forTesting.\nData:\n(i) the target bookmark storage database,\n(ii) a dictionary mapping databases (by name) to dictionaries mapping page titles to bookmark titles.\nNB: the latter may be needed in case of conflicts."
-									}
-								]
+								"items" : [ ]
 							},
 							"createEmail" : {
 								"__type" : "email",
@@ -136,7 +98,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T09:30:43.427557+01:00"
+									"dateAndTimeString" : "2025-10-27T09:29:58.047085+01:00"
 								}
 							},
 							"editEmail" : {
@@ -147,17 +109,17 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T09:30:43.427557+01:00"
+									"dateAndTimeString" : "2025-10-27T09:29:58.047085+01:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
-								"uidString" : "/NW/c4H+DQCub3R4Bv18jw=="
+								"uidString" : "K2ILcYH+DQCuMhaYBv18jw=="
 							},
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Create a {{gtClass:name=BookmarkRegistry}} class."
+							"string" : "Create a BookmarkRegistry class.\nKeeps track of which bookmarks exist for a source database in the target database where they are stored.\nNormally a singleton, with the target being the private database of the user.\nCan also have a testing instance that uses in-memory databases.\nSend #default or #uniqueInstance, and #forTesting.\nData:\n(i) the target bookmark storage database,\n(ii) a dictionary mapping databases (by name) to dictionaries mapping page titles to bookmark titles.\nNB: the latter may be needed in case of conflicts."
 						},
 						{
 							"__type" : "textSnippet",

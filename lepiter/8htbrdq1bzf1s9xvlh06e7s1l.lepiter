@@ -8,7 +8,230 @@
 				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
-					"items" : [ ]
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:27:59.473778+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:32:37.704196+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "MBr6aYH+DQCs0TCZBv18jw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Issue [#4806](https://github.com/feenkcom/gtoolkit/issues/4806)\nRepo [](https://github.com/feenkcom/gtoolkit-bookmarks)\nfeenkcom/gtoolkit#4806"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:27:28.930844+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:27:28.930844+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "LA0oaIH+DQCswUStBv18jw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Similar to [Metabook project](https://github.com/feenkcom/gtoolkit-metabook), but simpler and more general.\nAnyone can bookmark any pages in any database."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:29:03.379314+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:29:03.379314+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "JDXJbYH+DQCtaeQ/Bv18jw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Currently users have no easy way to keep track of interesting pages in the GT Book, and editors have no easy way to keep track of to-do tasks for editing the book pages short of cluttering the pages with annotations. There exists an experimental Metabook project to add so-called “metapages” containing review comments to pages (similar to to the “Talk” pages in Wikipedia, but this is not accessible to users who want to add their own personal comments."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:29:06.233864+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:29:06.233864+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "SMb0bYH+DQCtcD9oBv18jw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "The idea of the bookmark extension is to simply add a bookmark action to any lepiter page. Clicking it will create a new page in that user's proivate database, linking back to the source page. Users can then add their comments and notes to that private page. From any bookmark one can also explore the full list of bookmarks that user has created. Similarly, editors of the GT Book or any other database can then keep track of their private notes and todos. (A possible extension would be to configure bookmarks not to be stored in the private database but in a separate database, similar to the approach in the metabook prototype.)"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:29:07.950846+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:29:07.950846+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "7vkOboH+DQCtd9AqBv18jw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "A first prototype implementation would be straightforward: just create a bookmark for a page with the title “Bookmark for ”, and initial snippets with a link back to the source page, and initial text to expand with notes."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:28:38.443803+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:29:07.960653+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "LrxMbIH+DQCtMRy3Bv18jw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "If a bookmark for a page already exists, the bookmark action will just open the existing bookmark. A dedicated view will allow you to explore the set of already existing bookmarks."
+						}
+					]
 				},
 				"createEmail" : {
 					"__type" : "email",
@@ -18,7 +241,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-27T09:20:23.737565+01:00"
+						"dateAndTimeString" : "2025-10-27T09:27:02.249573+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,17 +252,92 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-27T09:22:13.702166+01:00"
+						"dateAndTimeString" : "2025-10-27T09:27:02.249573+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "9iDQToH+DQCqqhSpBv18jw=="
+					"uidString" : "aemQZoH+DQCsnvHEBv18jw=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "# Outline\n\nSimilar to Metabook project, but simpler and more general.\nAnyone can bookmark any pages in any database.\n\nQ How can we tell which database a bookmark belongs to?\nHow do we interpret the page link annotation?\n\nBookmarks: bookmarking a GT book page or any other page creates a new page in your private database with a link to the bookmarked page and the possibility to add notes. \n\nClicking on the bookmark button creates the bookmark, and changes the icon to a full bookmark. \n\nTitle: Bookmark: `<page title>`\nContents: \nBookmark for `<page link>`. \n*My notes ...*\n\nQ Can/should we store an index either as a page (My Bookmarks), or in the properties file?\nKeep it lightweight for starters.\n\nWhat can we do with bookmarks?\nGenerate a “My bookmarks” page for any database.\nHighlight pages that have bookmarks or don't.\nGenerate a topic roadmap of bookmarked pages.\n\nQ Can we tell if a bookmarked page has been renamed or deleted?\nWill the link still be valid if it has been renamed?"
+				"string" : "# Outline"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:20:23.737565+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T09:27:28.938919+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "9iDQToH+DQCqqhSpBv18jw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Q How can we tell which database a bookmark belongs to?\nHow do we interpret the page link annotation?\n\nBookmarks: bookmarking a GT book page or any other page creates a new page in your private database with a link to the bookmarked page and the possibility to add notes. \n\nClicking on the bookmark button creates the bookmark, and changes the icon to a full bookmark. \n\nTitle: Bookmark: `<page title>`\nContents: \nBookmark for `<page link>`. \n*My notes ...*\n\nQ Can/should we store an index either as a page (My Bookmarks), or in the properties file?\nKeep it lightweight for starters.\n\nWhat can we do with bookmarks?\nGenerate a “My bookmarks” page for any database.\nHighlight pages that have bookmarks or don't.\nGenerate a topic roadmap of bookmarked pages.\n\nQ Can we tell if a bookmarked page has been renamed or deleted?\nWill the link still be valid if it has been renamed?"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-10-27T09:28:43.384325+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-10-27T09:28:45.858247+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "lx+YbIH+DQCtO421Bv18jw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Notes"
 			}
 		]
 	},
