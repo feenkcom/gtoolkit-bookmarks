@@ -38,6 +38,11 @@ BookmarkRegistry class >> forTesting [
 		yourself
 ]
 
+{ #category : #cleanup }
+BookmarkRegistry class >> reset [
+	self cleanUniqueInstance
+]
+
 { #category : #acccessing }
 BookmarkRegistry class >> uniqueInstance [
 	^ uniqueInstance ifNil: [ uniqueInstance := self new ]
@@ -56,6 +61,13 @@ BookmarkRegistry >> addBookmarkFor: aPage [
 	^ bookmarkPage
 ]
 
+{ #category : #testing }
+BookmarkRegistry >> allBookmarksExist [
+	"If a bookmark page is deleted, the map will contain invalid bopokmarks."
+
+	^ (self bookmarks reject: [ :bm | bm database isDatabase ]) isEmpty
+]
+
 { #category : #accessing }
 BookmarkRegistry >> bookmarkMapFor: aDatabase [
 	^ self databaseMap at: aDatabase databaseName ifAbsentPut: Dictionary new
@@ -64,6 +76,18 @@ BookmarkRegistry >> bookmarkMapFor: aDatabase [
 { #category : #accessing }
 BookmarkRegistry >> bookmarkPageFor: aPage [
 	^ (self bookmarkMapFor: aPage database) at: aPage title
+]
+
+{ #category : #accessing }
+BookmarkRegistry >> bookmarks [
+	^ self databaseMap values flatCollect: #values
+]
+
+{ #category : #updating }
+BookmarkRegistry >> checkAllBookmarksExist [
+	"We can also do this any time a single bookmark fails to exist."
+
+	^ self allBookmarksExist ifFalse: [ self initializeDatabaseMap ]
 ]
 
 { #category : #accessing }
@@ -81,16 +105,80 @@ BookmarkRegistry >> databaseMap [
 	^ databaseMap
 ]
 
+{ #category : #querying }
+BookmarkRegistry >> entries [
+	"Transform the dictionary of dictionaries to a flat table."
+
+	^ self databaseMap associations
+		flatCollect: [ :dbMap | 
+			dbMap value associations
+				collect: [ :pageBookmark | 
+					{pageBookmark value.
+						pageBookmark key.
+						dbMap key} ] ]
+]
+
+{ #category : #views }
+BookmarkRegistry >> gtBookmarksFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Bookmarks';
+		items: [ self entries ];
+		column: 'Index'
+			text: [ :eachItem :eachIndex | eachIndex asRopedText foreground: Color gray ]
+			width: 45;
+		column: 'Bookmark'
+			text: [ :each | each first title ]
+			width: 300;
+		column: 'Page'
+			text: [ :each | each second ]
+			width: 200;
+		column: 'Database'
+			text: [ :each | each third ]
+			width: 200;
+		send: [ :each | each first ];
+		actionButtonIcon: BrGlamorousVectorIcons refresh
+			tooltip: 'Update'
+			action: [ :aButton :aTab | 
+				self initializeDatabaseMap.
+				aTab phlow fireViewUpdateWish ]
+]
+
 { #category : #accessing }
 BookmarkRegistry >> hasBookmarkFor: aPage [
-	^ (self bookmarkMapFor: aPage database) includesKey: aPage title
+	"Sanity check: if the bookmark no longer exists, we reinitialize the map."
+
+	| map |
+	map := self bookmarkMapFor: aPage database.
+	^ map
+		at: aPage title
+		ifPresent: [ :bm | 
+			| bmExists |
+			bmExists := bm database isDatabase.
+			bmExists ifFalse: [ self initializeDatabaseMap ].
+			bmExists ]
+		ifAbsent: [ false ]
 ]
 
 { #category : #initialization }
 BookmarkRegistry >> initialize [
 	super initialize.
 	database := LeDatabase primaryDB.
-	databaseMap := Dictionary new
+	self initializeDatabaseMap
+]
+
+{ #category : #initialization }
+BookmarkRegistry >> initializeDatabaseMap [
+	| bookmarkPages |
+	databaseMap := Dictionary new.
+	bookmarkPages := self database pages
+			select: [ :p | p title beginsWith: 'Bookmark for: ' ].
+	bookmarkPages
+		do: [ :bookmark | 
+			| page |
+			page := bookmark children first outgoingExplicitLinks first targetReference
+					content.
+			(self bookmarkMapFor: page database) at: page title put: bookmark ]
 ]
 
 { #category : #initialization }
