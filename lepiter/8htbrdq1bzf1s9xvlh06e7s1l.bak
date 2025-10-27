@@ -289,7 +289,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-27T19:33:39.66206+01:00"
+						"dateAndTimeString" : "2025-10-27T19:34:09.058157+01:00"
 					}
 				},
 				"uid" : {
@@ -299,7 +299,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : ""
+				"string" : "***To do:*** see [[Implementation steps]]"
 			}
 		]
 	},

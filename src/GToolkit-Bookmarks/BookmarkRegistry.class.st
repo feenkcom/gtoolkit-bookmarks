@@ -43,11 +43,6 @@ BookmarkRegistry class >> reset [
 	self cleanUniqueInstance
 ]
 
-{ #category : #acccessing }
-BookmarkRegistry class >> uniqueInstance [
-	^ uniqueInstance ifNil: [ uniqueInstance := self new ]
-]
-
 { #category : #updating }
 BookmarkRegistry >> addBookmarkFor: aPage [
 	"To do: detect conflict in page names and generate a new, unique name for the bookmark page."
@@ -68,17 +63,17 @@ BookmarkRegistry >> allBookmarksExist [
 	^ (self bookmarks reject: [ :bm | bm database isDatabase ]) isEmpty
 ]
 
-{ #category : #accessing }
+{ #category : #querying }
 BookmarkRegistry >> bookmarkMapFor: aDatabase [
 	^ self databaseMap at: aDatabase databaseName ifAbsentPut: Dictionary new
 ]
 
-{ #category : #accessing }
+{ #category : #querying }
 BookmarkRegistry >> bookmarkPageFor: aPage [
 	^ (self bookmarkMapFor: aPage database) at: aPage title
 ]
 
-{ #category : #accessing }
+{ #category : #querying }
 BookmarkRegistry >> bookmarks [
 	^ self databaseMap values flatCollect: #values
 ]
@@ -137,13 +132,7 @@ BookmarkRegistry >> gtBookmarksFor: aView [
 			width: 45;
 		column: 'Bookmark'
 			text: [ :each | each first title ]
-			width: 350;
-		column: 'Page'
-			text: [ :each | each second ]
-			width: 250;
-		column: 'Database'
-			text: [ :each | each third ]
-			width: 200;
+			width: 500;
 		send: [ :each | each first ];
 		actionButtonIcon: BrGlamorousVectorIcons refresh
 			tooltip: 'Update'
@@ -152,7 +141,7 @@ BookmarkRegistry >> gtBookmarksFor: aView [
 				aTab phlow fireViewUpdateWish ]
 ]
 
-{ #category : #accessing }
+{ #category : #testing }
 BookmarkRegistry >> hasBookmarkFor: aPage [
 	"Sanity check: if the bookmark no longer exists, we reinitialize the map."
 
@@ -184,8 +173,7 @@ BookmarkRegistry >> initializeDatabaseMap [
 	bookmarkPages
 		do: [ :bookmark | 
 			| page |
-			page := bookmark children first outgoingExplicitLinks first targetReference
-					content.
+			page := self pageForBookmark: bookmark.
 			(self bookmarkMapFor: page database) at: page title put: bookmark ]
 ]
 
@@ -210,7 +198,12 @@ BookmarkRegistry >> newBookmarkPageFor: aPage [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : #querying }
+BookmarkRegistry >> pageForBookmark: aBookmarkPage [
+	^ aBookmarkPage children first outgoingExplicitLinks first targetReference content
+]
+
+{ #category : #updating }
 BookmarkRegistry >> removeBookmarkFor: aPage [
 	| bookmarkMap |
 	bookmarkMap := self bookmarkMapFor: aPage database.

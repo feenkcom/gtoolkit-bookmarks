@@ -5,6 +5,12 @@ Class {
 }
 
 { #category : #loading }
+BaselineOfGToolkitBookmarks class >> gtDependencyAnalysisPreloadedBaselines [
+	^ super gtDependencyAnalysisPreloadedBaselines
+		copyWith: BaselineOfGToolkit
+]
+
+{ #category : #loading }
 BaselineOfGToolkitBookmarks class >> loadLepiter [
 	IceRepository registry  
 		detect: [ :aRepository |

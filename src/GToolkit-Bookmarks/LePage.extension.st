@@ -43,3 +43,8 @@ LePage >> hasBookmark [
 LePage >> isBookmark [
 	^ BookmarkRegistry default bookmarks includes: self
 ]
+
+{ #category : #'*GToolkit-Bookmarks' }
+LePage >> pageForBookmark [
+	^ BookmarkRegistry default pageForBookmark: self
+]
