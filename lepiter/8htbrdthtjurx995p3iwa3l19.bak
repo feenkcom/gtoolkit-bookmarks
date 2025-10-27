@@ -88,7 +88,150 @@
 							"__type" : "textSnippet",
 							"children" : {
 								"__type" : "snippets",
-								"items" : [ ]
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T10:09:01.266999+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T11:56:05.328986+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "PBW2/IH+DQClxYXDBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "Keeps track of which bookmarks exist for a source database in the target database where they are stored. Normally a singleton, with the target being the private database of the user.\nWe make it use the trait {{gtClass:name=TGtUniqueInstance}}\nWe also have a testing version with a in-memory database."
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T10:23:19.533677+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T11:53:57.938913+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "hjTeL4L+DQCnmNqyBQ8dwQ=="
+										},
+										"code" : "BookmarkRegistry default"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T11:54:17.207949+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T11:54:21.160846+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "5rIrdYP+DQCoQBg9BQ8dwQ=="
+										},
+										"code" : "BookmarkRegistry forTesting"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T09:29:58.047085+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T11:55:38.803156+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "K2ILcYH+DQCuMhaYBv18jw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "Data:\n(i) the target bookmark storage database,\n(ii) a dictionary mapping databases (by name) to dictionaries mapping page titles to bookmark titles.\nNB: the latter may be needed in case of conflicts."
+									}
+								]
 							},
 							"createEmail" : {
 								"__type" : "email",
@@ -98,7 +241,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T09:29:58.047085+01:00"
+									"dateAndTimeString" : "2025-10-27T09:30:43.427557+01:00"
 								}
 							},
 							"editEmail" : {
@@ -109,17 +252,532 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T09:29:58.047085+01:00"
+									"dateAndTimeString" : "2025-10-27T09:30:43.427557+01:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
-								"uidString" : "K2ILcYH+DQCuMhaYBv18jw=="
+								"uidString" : "/NW/c4H+DQCub3R4Bv18jw=="
 							},
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Create a BookmarkRegistry class.\nKeeps track of which bookmarks exist for a source database in the target database where they are stored.\nNormally a singleton, with the target being the private database of the user.\nCan also have a testing instance that uses in-memory databases.\nSend #default or #uniqueInstance, and #forTesting.\nData:\n(i) the target bookmark storage database,\n(ii) a dictionary mapping databases (by name) to dictionaries mapping page titles to bookmark titles.\nNB: the latter may be needed in case of conflicts."
+							"string" : "Create a {{gtClass:name=BookmarkRegistry}} class."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T12:03:07.000427+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T12:03:31.399293+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "vq2/lIP+DQCqlCfaBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "Create in-memory database for testing: {{gtMethod:name=BookmarkRegistryExamples>>#sourceDatabase}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T12:04:18.499294+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T12:04:28.49041+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "8KsCmYP+DQCrbB5JBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "There is also an in-memory other is a target holding the bookmarks: {{gtMethod:name=BookmarkRegistryExamples>>#sourceDatabase}}"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T10:10:07.842473+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T10:10:30.75979+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "JO6tAIL+DQCmi9aOBQ8dwQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Create a {{gtClass:name=BookmarkRegistryExamples}} class."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T10:10:10.283436+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T12:04:18.501549+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "YC3TAIL+DQCmku/YBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "Examples will test existence of bookmarks, creating and deleting bookmarks.\nAlso test when pages in two different databases with the same title are bookmarked, e.g., \"Glamorous Toolkit\" in the GT book and in the test source db. In this case the bookmark title needs a disambiguation string."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T12:12:59.121228+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T13:40:40.863972+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "f7oKuIP+DQCr7TUZBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "- Empty bookmarks: page hasBookmark is false. page database bookmarks is empty.\n{{gtMethod:name=BookmarkRegistryExamples>>#page1HasNoBookmark}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T13:40:44.633976+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T13:40:53.033053+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "OhHk8YT+DQC5CBgEBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "- Create bookmark: page hasBookmark. bookmarks notEmpty.\n{{gtMethod:name=BookmarkRegistryExamples>>#page1GetsBookmark}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T14:00:04.944989+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T14:00:13.292138+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "YAYNN4X+DQC8sewwBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "- Delete bookmark.\n{{gtMethod:name=BookmarkRegistryExamples>>#page1DeletesBookmark}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T14:00:16.37322+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T14:26:36.877623+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "U2i7N4X+DQC833CZBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "- TO DO: Navigate from bookmark to page.\n{{gtMethod:name=BookmarkRegistryExamples>>#gtBookPageGetsBookmark}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "pharoSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2025-10-27T14:17:49.46405+01:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2025-10-27T14:21:57.661566+01:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "KjqAdoX+DQCFUildBQ8dwQ=="
+													},
+													"code" : "bookmarkPage := BookmarkRegistryExamples new gtBookPageGetsBookmark.\ruuidString := bookmarkPage children first allOutgoingExplicitLinks first linkUuid asString.\rLeDatabasesRegistry uniqueInstance defaultLogicalDatabase databaseWithID: uuidString"
+												},
+												{
+													"__type" : "pharoSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2025-10-27T14:16:48.171724+01:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2025-10-27T14:21:17.929501+01:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "Pw3ZcoX+DQCEvFDUBQ8dwQ=="
+													},
+													"code" : "LeDatabasesRegistry uniqueInstance defaultLogicalDatabase databases collect: [:db | {db . db uuidString } ]"
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T14:25:50.571029+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T14:26:25.335101+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "gGctk4X+DQCHXLZiBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "How to resolve a gtPage reference? This is not working ..."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T12:05:48.559468+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-27T14:26:32.603857+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "k+BgnoP+DQCrv79TBQ8dwQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "- TO DO: Create bookmark with conflict."
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T12:05:56.835999+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T12:05:56.835999+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "eybfnoP+DQCrz/UiBQ8dwQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Examples:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T12:05:45.200344+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-27T12:05:45.200344+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "2p4tnoP+DQCrt2MpBQ8dwQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Implementation questions.\nHow to create the in-memory databases?\nWhat is the Singleton trait to use?\nHow to create the default bookmark page with the link to the source page? (Look at the \"create link\" action.)\nHow can we interpret the page link annotation to know what page and database are linked to?\nHow to change the bookmark action icon to show that a bookmark has been created?"
 						},
 						{
 							"__type" : "textSnippet",
@@ -146,7 +804,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T09:29:58.054577+01:00"
+									"dateAndTimeString" : "2025-10-27T12:05:48.562026+01:00"
 								}
 							},
 							"uid" : {
@@ -156,7 +814,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Create a BookmarkRegistryExamples class.\nCreate in-memory databases for testing.\nOne is a source database with a few pages to be bookmarked, and the other is a target holding the bookmarks.\nExamples will test existence of bookmarks, creating and deleting bookmarks.\nAlso test when pages in two different databases with the same title are bookmarked, e.g., \"Glamorous Toolkit\" in the GT book and in the test source db. In this case the bookmark title needs a disambiguation string.\n\nImplementation questions.\nHow to create the in-memory databases?\nWhat is the Singleton trait to use?\nHow to create the default bookmark page with the link to the source page? (Look at the \"create link\" action.)\nHow can we interpret the page link annotation to know what page and database are linked to?\nHow to change the bookmark action icon to show that a bookmark has been created?\n\nExamples:\n\n- Empty bookmarks: page hasBookmark is false. page database bookmarks is empty.\n- Create bookmark: page hasBookmark. bookmarks noEmpty.\n- Delete bookmark.\n- Create bookmark with conflict.\n\nActions:\n\n- Create/go to bookmark. Bookmark icon changes appearance if created.\nInspect bookmark registry.\n\nViews:\n\n- Registry source databases.\n- Registry list of bookmarks.\n"
+							"string" : "Actions:\n\n- Create/go to bookmark. Bookmark icon changes appearance if created.\nInspect bookmark registry.\n\nViews:\n\n- Registry source databases.\n- Registry list of bookmarks.\n"
 						}
 					]
 				},
