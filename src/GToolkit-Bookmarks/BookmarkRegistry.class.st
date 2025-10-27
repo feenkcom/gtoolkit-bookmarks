@@ -105,17 +105,25 @@ BookmarkRegistry >> databaseMap [
 	^ databaseMap
 ]
 
+{ #category : #updating }
+BookmarkRegistry >> ensureBookmarkFor: aPage [
+	^ (self bookmarkMapFor: aPage database)
+		at: aPage title
+		ifPresent: [ :p | p ]
+		ifAbsent: [ self addBookmarkFor: aPage ]
+]
+
 { #category : #querying }
 BookmarkRegistry >> entries [
 	"Transform the dictionary of dictionaries to a flat table."
 
-	^ self databaseMap associations
+	^ (self databaseMap associations
 		flatCollect: [ :dbMap | 
 			dbMap value associations
 				collect: [ :pageBookmark | 
 					{pageBookmark value.
 						pageBookmark key.
-						dbMap key} ] ]
+						dbMap key} ] ]) sortedAs: #second
 ]
 
 { #category : #views }
@@ -129,10 +137,10 @@ BookmarkRegistry >> gtBookmarksFor: aView [
 			width: 45;
 		column: 'Bookmark'
 			text: [ :each | each first title ]
-			width: 300;
+			width: 350;
 		column: 'Page'
 			text: [ :each | each second ]
-			width: 200;
+			width: 250;
 		column: 'Database'
 			text: [ :each | each third ]
 			width: 200;
