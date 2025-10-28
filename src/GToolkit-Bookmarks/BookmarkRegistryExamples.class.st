@@ -7,6 +7,17 @@ Class {
 }
 
 { #category : #examples }
+BookmarkRegistryExamples >> cleanTestRegistry [
+	<gtExample>
+	| registry |
+	BookmarkRegistry reset.
+	registry := BookmarkRegistry forTesting.
+	self assert: registry database isVolatile.
+	self assert: registry bookmarks isEmpty.
+	^ registry
+]
+
+{ #category : #examples }
 BookmarkRegistryExamples >> gtBookPageGetsBookmark [
 	<gtExample>
 	| db registry gtPage bookmarkPage |
@@ -62,27 +73,27 @@ BookmarkRegistryExamples >> page1 [
 { #category : #examples }
 BookmarkRegistryExamples >> page1DeletesBookmark [
 	<gtExample>
-	| p1 registry pageRegistry |
-	pageRegistry := self page1GetsBookmark.
-	p1 := pageRegistry first.
-	registry := pageRegistry second.
+	| p1 registry db |
+	db := self page1GetsBookmark.
+	p1 := db pageNamed: 'Page 1'.
+	registry := self testRegistry.
 	registry removeBookmarkFor: p1.
 	self assert: (registry hasBookmarkFor: p1) not.
-	^ {p1.
-		registry}
+	self assert: registry bookmarks isEmpty.
+	^ db
 ]
 
 { #category : #examples }
 BookmarkRegistryExamples >> page1GetsBookmark [
 	<gtExample>
-	| p1 registry pageRegistry |
-	pageRegistry := self page1HasNoBookmark.
-	p1 := pageRegistry first.
-	registry := pageRegistry second.
+	| p1 registry db |
+	db := self page1HasNoBookmark.
+	p1 := db pageNamed: 'Page 1'.
+	registry := self testRegistry.
 	registry addBookmarkFor: p1.
 	self assert: (registry hasBookmarkFor: p1).
-	^ {p1.
-		registry}
+	self assert: registry bookmarks size equals: 1.
+	^ db
 ]
 
 { #category : #examples }
@@ -93,8 +104,8 @@ BookmarkRegistryExamples >> page1HasNoBookmark [
 	p1 := db pageNamed: 'Page 1'.
 	registry := self testRegistry.
 	self assert: (registry hasBookmarkFor: p1) not.
-	^ {p1.
-		registry}
+	self assert: registry bookmarks isEmpty.
+	^ db
 ]
 
 { #category : #page }
@@ -131,7 +142,7 @@ BookmarkRegistryExamples >> page3 [
 BookmarkRegistryExamples >> sourceDatabase [
 	<gtExample>
 	| db |
-	db := self database monitor: self testRegistry database monitor.
+	db := self database monitor: self cleanTestRegistry database monitor.
 	self assert: db pages size equals: 4.
 	self assert: db isVolatile.
 	^ db
@@ -141,7 +152,6 @@ BookmarkRegistryExamples >> sourceDatabase [
 BookmarkRegistryExamples >> testRegistry [
 	<gtExample>
 	| registry |
-	BookmarkRegistry reset.
 	registry := BookmarkRegistry forTesting.
 	self assert: registry database isVolatile.
 	^ registry
