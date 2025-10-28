@@ -1,6 +1,13 @@
 Extension { #name : #LePage }
 
 { #category : #'*GToolkit-Bookmarks' }
+LePage >> bookmarkRegistry [
+	^ self database isVolatile
+		ifTrue: [ BookmarkRegistry forTesting ]
+		ifFalse: [ BookmarkRegistry default ]
+]
+
+{ #category : #'*GToolkit-Bookmarks' }
 LePage >> gtBookmarkActionFor: anAction [
 	<lePageAction>
 	self isBookmark ifTrue: [ ^ anAction empty ].
@@ -11,15 +18,15 @@ LePage >> gtBookmarkActionFor: anAction [
 				ifTrue: [ BrGlamorousVectorIcons bookmarkFilled ]
 				ifFalse: [ BrGlamorousVectorIcons bookmark ]);
 		action: [ :aButton | 
-			aButton phlow
-				spawnObject: (self hasBookmark
-						ifTrue: [ BookmarkRegistry default bookmarkPageFor: self ]
-						ifFalse: [ BookmarkRegistry default addBookmarkFor: self ]) ];
+			| bookmarkPage |
+			bookmarkPage := self bookmarkRegistry ensureBookmarkFor: self.
+			aButton phlow fireViewUpdateWish.
+			aButton phlow spawnObject: bookmarkPage ];
 		primaryModifierAction: [ :aButton | 
-			aButton phlow
-				showObject: (self hasBookmark
-						ifTrue: [ BookmarkRegistry default bookmarkPageFor: self ]
-						ifFalse: [ BookmarkRegistry default addBookmarkFor: self ]) ]
+			| bookmarkPage |
+			bookmarkPage := self bookmarkRegistry ensureBookmarkFor: self.
+			aButton phlow fireViewUpdateWish.
+			aButton phlow showObject: bookmarkPage ]
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
@@ -30,21 +37,21 @@ LePage >> gtBookmarkRegistryActionFor: anAction [
 		tooltip: 'Inspect bookmarks';
 		priority: 30;
 		icon: BrGlamorousVectorIcons bookmark;
-		action: [ :aButton | aButton phlow spawnObject: BookmarkRegistry default ];
-		primaryModifierAction: [ :aButton | aButton phlow showObject: BookmarkRegistry ]
+		action: [ :aButton | aButton phlow spawnObject: self bookmarkRegistry ];
+		primaryModifierAction: [ :aButton | aButton phlow showObject: self bookmarkRegistry ]
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
 LePage >> hasBookmark [
-	^ BookmarkRegistry default hasBookmarkFor: self
+	^ self bookmarkRegistry hasBookmarkFor: self
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
 LePage >> isBookmark [
-	^ BookmarkRegistry default bookmarks includes: self
+	^ self bookmarkRegistry bookmarks includes: self
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
 LePage >> pageForBookmark [
-	^ BookmarkRegistry default pageForBookmark: self
+	^ self bookmarkRegistry pageForBookmark: self
 ]

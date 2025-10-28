@@ -1,5 +1,5 @@
 "
-I keeps track of which bookmarks exist for a source database in the target database where they are stored.
+I keep track of which bookmarks exist for a source database in the target database where they are stored.
 
 Normally I am a singleton, with the target being the private database of the user.
 ```
@@ -26,21 +26,41 @@ Class {
 		'databaseMap'
 	],
 	#classInstVars : [
-		'uniqueInstance'
+		'uniqueInstance',
+		'testInstance'
 	],
 	#category : #'GToolkit-Bookmarks-Model'
 }
 
+{ #category : #cleanup }
+BookmarkRegistry class >> cleanTestInstance [
+	testInstance := nil
+]
+
 { #category : #'instance creation' }
 BookmarkRegistry class >> forTesting [
-	^ self new
-		initializeForTesting;
-		yourself
+	"For testing purposes we have a `second singleton' that uses volatile databases."
+
+	^ self testInstance
 ]
 
 { #category : #cleanup }
 BookmarkRegistry class >> reset [
-	self cleanUniqueInstance
+	"Resetting the registry will clear the singletons, forcing a fresh instance to be created and initialized.
+	This will refresh the map, and, in the case of the test registry, will also empty the bookmark database."
+
+	self cleanUniqueInstance.
+	self cleanTestInstance
+]
+
+{ #category : #'instance creation' }
+BookmarkRegistry class >> testInstance [
+	"For testing purposes we have a `second singleton' that uses volatile databases."
+
+	^ testInstance
+		ifNil: [ testInstance := self new
+					initializeForTesting;
+					yourself ]
 ]
 
 { #category : #updating }
@@ -126,6 +146,7 @@ BookmarkRegistry >> gtBookmarksFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Bookmarks';
+		priority: 20;
 		items: [ self entries ];
 		column: 'Index'
 			text: [ :eachItem :eachIndex | eachIndex asRopedText foreground: Color gray ]
@@ -137,8 +158,19 @@ BookmarkRegistry >> gtBookmarksFor: aView [
 		actionButtonIcon: BrGlamorousVectorIcons refresh
 			tooltip: 'Update'
 			action: [ :aButton :aTab | 
-				self initializeDatabaseMap.
+				self database isVolatile ifFalse: [ self initializeDatabaseMap ].
 				aTab phlow fireViewUpdateWish ]
+]
+
+{ #category : #views }
+BookmarkRegistry >> gtTestDatabaseFor: aView [
+	<gtView>
+	self database isVolatile ifFalse: [^ aView empty].
+	^ aView forward
+		title: 'Test bookmark database';
+		priority: 30;
+		object: [ self database ];
+		view: #gtLiveFor:
 ]
 
 { #category : #testing }
@@ -183,7 +215,8 @@ BookmarkRegistry >> initializeForTesting [
 
 	database := LeDatabase new monitor: LeVolatileMonitor new.
 	LeBasicDatabasesRegistry new
-		defaultLogicalDatabase: (LeLogicalDatabase new primaryDB: database)
+		defaultLogicalDatabase: (LeLogicalDatabase new primaryDB: database).
+	self initializeDatabaseMap
 ]
 
 { #category : #updating }

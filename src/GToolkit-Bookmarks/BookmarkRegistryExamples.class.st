@@ -51,7 +51,10 @@ BookmarkRegistryExamples >> page1 [
 	<noTest>
 	^ (LePage named: 'Page 1')
 		addSnippet: (LeTextSnippet new
-				string: 'A sample page';
+				string: 'A sample page.';
+				yourself);
+		addSnippet: (LeTextSnippet new
+				string: 'I link to [[Page 2]].';
 				yourself);
 		yourself
 ]
@@ -103,6 +106,9 @@ BookmarkRegistryExamples >> page2 [
 		addSnippet: (LeTextSnippet new
 				string: 'Another sample page';
 				yourself);
+		addSnippet: (LeTextSnippet new
+				string: 'I link to [[Page 1]] and [[Page 3]].';
+				yourself);
 		yourself
 ]
 
@@ -115,6 +121,9 @@ BookmarkRegistryExamples >> page3 [
 		addSnippet: (LeTextSnippet new
 				string: 'Yet another sample page';
 				yourself);
+		addSnippet: (LeTextSnippet new
+				string: 'I link to [[Page 1]] and [[Page 2]].';
+				yourself);
 		yourself
 ]
 
@@ -122,9 +131,9 @@ BookmarkRegistryExamples >> page3 [
 BookmarkRegistryExamples >> sourceDatabase [
 	<gtExample>
 	| db |
-	db := self database.
+	db := self database monitor: self testRegistry database monitor.
 	self assert: db pages size equals: 4.
-	self assert: db monitor isVolatileMonitor.
+	self assert: db isVolatile.
 	^ db
 ]
 
@@ -132,7 +141,8 @@ BookmarkRegistryExamples >> sourceDatabase [
 BookmarkRegistryExamples >> testRegistry [
 	<gtExample>
 	| registry |
+	BookmarkRegistry reset.
 	registry := BookmarkRegistry forTesting.
-	self assert: registry database monitor isVolatileMonitor.
+	self assert: registry database isVolatile.
 	^ registry
 ]
