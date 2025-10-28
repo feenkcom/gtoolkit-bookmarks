@@ -150,6 +150,9 @@ BookmarkRegistryExamples >> sourceDatabase [
 
 { #category : #examples }
 BookmarkRegistryExamples >> testRegistry [
+	"NB: This will return the singleton in its current state, not a fresh one.
+	To get a fresh registry use cleanTestRegistry."
+
 	<gtExample>
 	| registry |
 	registry := BookmarkRegistry forTesting.
