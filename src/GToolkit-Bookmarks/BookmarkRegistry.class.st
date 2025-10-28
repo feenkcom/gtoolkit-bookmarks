@@ -23,7 +23,7 @@ Class {
 	#classTraits : 'TGtUniqueInstance classTrait',
 	#instVars : [
 		'database',
-		'databaseMap'
+		'page2BookmarkMap'
 	],
 	#classInstVars : [
 		'uniqueInstance',
@@ -67,12 +67,11 @@ BookmarkRegistry class >> testInstance [
 BookmarkRegistry >> addBookmarkFor: aPage [
 	"To do: detect conflict in page names and generate a new, unique name for the bookmark page."
 
-	| bookmarkPage bookmarkMap |
+	| bookmarkPage |
 	bookmarkPage := self newBookmarkPageFor: aPage.
 	self database addPage: bookmarkPage.
-	bookmarkMap := self bookmarkMapFor: aPage database.
 	self assert: (self hasBookmarkFor: aPage) not.
-	bookmarkMap at: aPage title put: bookmarkPage.
+	self page2BookmarkMap at: aPage put: bookmarkPage.
 	^ bookmarkPage
 ]
 
@@ -84,25 +83,20 @@ BookmarkRegistry >> allBookmarksExist [
 ]
 
 { #category : #querying }
-BookmarkRegistry >> bookmarkMapFor: aDatabase [
-	^ self databaseMap at: aDatabase databaseName ifAbsentPut: Dictionary new
-]
-
-{ #category : #querying }
 BookmarkRegistry >> bookmarkPageFor: aPage [
-	^ (self bookmarkMapFor: aPage database) at: aPage title
+	^ self page2BookmarkMap at: aPage
 ]
 
 { #category : #querying }
 BookmarkRegistry >> bookmarks [
-	^ self databaseMap values flatCollect: #values
+	^ self page2BookmarkMap values
 ]
 
 { #category : #updating }
 BookmarkRegistry >> checkAllBookmarksExist [
 	"We can also do this any time a single bookmark fails to exist."
 
-	^ self allBookmarksExist ifFalse: [ self initializeDatabaseMap ]
+	^ self allBookmarksExist ifFalse: [ self initializePage2BookmarkMap ]
 ]
 
 { #category : #accessing }
@@ -113,32 +107,23 @@ BookmarkRegistry >> database [
 	^ database
 ]
 
-{ #category : #accessing }
-BookmarkRegistry >> databaseMap [
-	"Maps databases to dictionaries that map pages to their bookmark pages."
-
-	^ databaseMap
-]
-
 { #category : #updating }
 BookmarkRegistry >> ensureBookmarkFor: aPage [
-	^ (self bookmarkMapFor: aPage database)
-		at: aPage title
+	^ self page2BookmarkMap
+		at: aPage
 		ifPresent: [ :p | p ]
 		ifAbsent: [ self addBookmarkFor: aPage ]
 ]
 
 { #category : #querying }
 BookmarkRegistry >> entries [
-	"Transform the dictionary of dictionaries to a flat table."
+	"Transform the dictionary to a flat table."
 
-	^ (self databaseMap associations
-		flatCollect: [ :dbMap | 
-			dbMap value associations
-				collect: [ :pageBookmark | 
-					{pageBookmark value.
-						pageBookmark key.
-						dbMap key} ] ]) sortedAs: #second
+	^ self page2BookmarkMap associations
+		collect: [ :pb | 
+			{pb value.
+				pb key.
+				pb value database} ]
 ]
 
 { #category : #views }
@@ -158,7 +143,7 @@ BookmarkRegistry >> gtBookmarksFor: aView [
 		actionButtonIcon: BrGlamorousVectorIcons refresh
 			tooltip: 'Update'
 			action: [ :aButton :aTab | 
-				self database isVolatile ifFalse: [ self initializeDatabaseMap ].
+				self database isVolatile ifFalse: [ self initializePage2BookmarkMap ].
 				aTab phlow fireViewUpdateWish ]
 ]
 
@@ -177,14 +162,12 @@ BookmarkRegistry >> gtTestDatabaseFor: aView [
 BookmarkRegistry >> hasBookmarkFor: aPage [
 	"Sanity check: if the bookmark no longer exists, we reinitialize the map."
 
-	| map |
-	map := self bookmarkMapFor: aPage database.
-	^ map
-		at: aPage title
+	^ self page2BookmarkMap
+		at: aPage
 		ifPresent: [ :bm | 
 			| bmExists |
 			bmExists := bm database isDatabase.
-			bmExists ifFalse: [ self initializeDatabaseMap ].
+			bmExists ifFalse: [ self initializePage2BookmarkMap ].
 			bmExists ]
 		ifAbsent: [ false ]
 ]
@@ -193,20 +176,7 @@ BookmarkRegistry >> hasBookmarkFor: aPage [
 BookmarkRegistry >> initialize [
 	super initialize.
 	database := LeDatabase primaryDB.
-	self initializeDatabaseMap
-]
-
-{ #category : #initialization }
-BookmarkRegistry >> initializeDatabaseMap [
-	| bookmarkPages |
-	databaseMap := Dictionary new.
-	bookmarkPages := self database pages
-			select: [ :p | p title beginsWith: 'Bookmark for: ' ].
-	bookmarkPages
-		do: [ :bookmark | 
-			| page |
-			page := self pageForBookmark: bookmark.
-			(self bookmarkMapFor: page database) at: page title put: bookmark ]
+	self initializePage2BookmarkMap
 ]
 
 { #category : #initialization }
@@ -216,7 +186,15 @@ BookmarkRegistry >> initializeForTesting [
 	database := LeDatabase new monitor: LeVolatileMonitor new.
 	LeBasicDatabasesRegistry new
 		defaultLogicalDatabase: (LeLogicalDatabase new primaryDB: database).
-	self initializeDatabaseMap
+	self initializePage2BookmarkMap
+]
+
+{ #category : #initialization }
+BookmarkRegistry >> initializePage2BookmarkMap [
+	page2BookmarkMap := ((self database pages
+			select: [ :p | p title beginsWith: 'Bookmark for: ' ])
+			collect: [ :bookmark | (self pageForBookmark: bookmark) -> bookmark ])
+			asDictionary
 ]
 
 { #category : #updating }
@@ -231,17 +209,25 @@ BookmarkRegistry >> newBookmarkPageFor: aPage [
 		yourself
 ]
 
+{ #category : #accessing }
+BookmarkRegistry >> page2BookmarkMap [
+	^ page2BookmarkMap
+]
+
 { #category : #querying }
 BookmarkRegistry >> pageForBookmark: aBookmarkPage [
 	^ aBookmarkPage children first outgoingExplicitLinks first targetReference content
 ]
 
+{ #category : #querying }
+BookmarkRegistry >> pages [
+	^ self page2BookmarkMap keys
+]
+
 { #category : #updating }
 BookmarkRegistry >> removeBookmarkFor: aPage [
-	| bookmarkMap |
-	bookmarkMap := self bookmarkMapFor: aPage database.
 	self assert: (self hasBookmarkFor: aPage).
-	(bookmarkMap at: aPage title) removeSelf.
-	bookmarkMap removeKey: aPage title.
+	(self page2BookmarkMap at: aPage) removeSelf.
+	self page2BookmarkMap removeKey: aPage.
 	self assert: (self hasBookmarkFor: aPage) not
 ]
