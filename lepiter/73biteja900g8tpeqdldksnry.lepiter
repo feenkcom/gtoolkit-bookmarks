@@ -45,7 +45,79 @@
 				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
-					"items" : [ ]
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T09:38:20.627136+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T09:43:13.785181+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "geOuyqn+DQCjfYRMA9PLdw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "For example, we can find for each GT book page such bookmark pages:\n(takes about 16 seconds for my own db of over 2500 pages)."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T09:57:37.105983+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T09:58:30.630223+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "y1WdD6r+DQCyf3kzA9PLdw=="
+							},
+							"code" : "[ UIManager default\r\tinformUser: 'Finding references'\r\tduring: [ timeToRun := [ bookmarkDict := (LeDatabase gtBook pages\r\t\t\t\t\tcollect: [ :p | p -> p explicitReferencesFromPrimaryDB ]) asDictionary ]\r\t\t\t\ttimeToRun ] ] fork"
+						}
+					]
 				},
 				"createEmail" : {
 					"__type" : "email",
@@ -55,7 +127,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-29T09:38:20.627136+01:00"
+						"dateAndTimeString" : "2025-10-29T10:32:33.864935+01:00"
 					}
 				},
 				"editEmail" : {
@@ -66,20 +138,304 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-29T09:43:13.785181+01:00"
+						"dateAndTimeString" : "2025-10-29T10:32:41.83699+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "geOuyqn+DQCjfYRMA9PLdw=="
+					"uidString" : "116XjKr+DQCynfnTAKt8Wg=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "For example, we can find for each GT book page such bookmark pages:\n(takes about 16 seconds for my own db of over 2500 pages)."
+				"string" : "# Creating a map"
 			},
 			{
-				"__type" : "pharoSnippet",
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T09:40:00.070397+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:33:41.982919+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "x0ic0Kn+DQCnFRDtA9PLdw=="
+										},
+										"code" : "bookmarkedPages := bookmarkDict associations select: [ :assoc | assoc value notEmpty ] thenCollect: #key"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:33:29.334675+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:34:05.021267+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "QMblj6r+DQC0Ngn1AKt8Wg=="
+										},
+										"code" : "TopicMap default pageGroupFor: bookmarkedPages"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T10:32:09.16419+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T10:32:19.450643+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "xHkei6r+DQCyCRZyAKt8Wg=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Which pages do I refer to?"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:34:38.255363+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:35:35.079393+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "L20BlKr+DQC17L00AKt8Wg=="
+										},
+										"code" : "bookmarks := (bookmarkDict associations flatCollect: #value) copyWithoutDuplicates"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:36:13.915461+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:43:09.663999+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "SBK1mar+DQC23lnxAKt8Wg=="
+										},
+										"code" : "reverseDict := Dictionary new.\rbookmarkDict associations\r\tdo: [ :assoc | \r\t\tassoc value\r\t\t\tdo: [ :b | (reverseDict at: b ifAbsentPut: OrderedCollection new) add: assoc key ] ].\rreverseDict associations\r\tsort: [ :a :b | a value size > b value size and: [ a key title < b key title ] ]"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:43:56.277606+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-10-29T10:44:00.340593+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "ACdEtar+DQC8FQkHAKt8Wg=="
+										},
+										"code" : "reverseDict keys"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T10:32:24.721719+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T10:34:35.815488+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "V90LjKr+DQCykZSoAKt8Wg=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "What are my bookmark pages?"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-10-29T10:32:51.881269+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-10-29T10:32:58.948494+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "GEeqjar+DQCy+srPAKt8Wg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Exploring the bookmarks"
+			},
+			{
+				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
 					"items" : [ ]
@@ -92,7 +448,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-29T09:57:37.105983+01:00"
+						"dateAndTimeString" : "2025-10-29T10:32:29.618945+01:00"
 					}
 				},
 				"editEmail" : {
@@ -103,48 +459,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-29T09:58:30.630223+01:00"
+						"dateAndTimeString" : "2025-10-29T10:32:29.618945+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "y1WdD6r+DQCyf3kzA9PLdw=="
+					"uidString" : "9pRWjKr+DQCymNEVAKt8Wg=="
 				},
-				"code" : "[ UIManager default\r\tinformUser: 'Finding references'\r\tduring: [ timeToRun := [ bookmarkDict := (LeDatabase gtBook pages\r\t\t\t\t\tcollect: [ :p | p -> p explicitReferencesFromPrimaryDB ]) asDictionary ]\r\t\t\t\ttimeToRun ] ] fork"
-			},
-			{
-				"__type" : "pharoSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
+				"paragraphStyle" : {
+					"__type" : "textStyle"
 				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-29T09:40:00.070397+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-29T09:44:04.538315+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "x0ic0Kn+DQCnFRDtA9PLdw=="
-				},
-				"code" : "bookmarkDict associations select: [ :assoc | assoc value notEmpty ]"
+				"string" : ""
 			}
 		]
 	},

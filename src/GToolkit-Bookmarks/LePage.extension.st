@@ -58,6 +58,19 @@ LePage >> gtBookmarkRegistryActionFor: anAction [
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
+LePage >> gtReferringPagesActionFor: anAction [
+	<lePageAction>
+	self isBookmark ifTrue: [ ^ anAction empty ].
+	self explicitReferencesFromPrimaryDB ifEmpty: [ ^ anAction empty ].
+	^ anAction button
+		tooltip: 'Inspect referring pages';
+		priority: 31;
+		icon: BrGlamorousVectorIcons left;
+		action: [ :aButton | aButton phlow spawnObject: self explicitReferencesFromPrimaryDB ];
+		primaryModifierAction: [ :aButton |  ]
+]
+
+{ #category : #'*GToolkit-Bookmarks' }
 LePage >> hasBookmark [
 	^ self bookmarkRegistry hasBookmarkFor: self
 ]
