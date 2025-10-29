@@ -111,7 +111,7 @@ LePage >> page2BookmarkMap [
 
 	| page2BookmarkMap |
 	page2BookmarkMap := ((self database pages select: #isNamedPage)
-			collect: [ :p | p -> OrderedCollection new ]) asDictionary.
+			collect: [ :p | p -> Set new ]) asDictionary.
 	(LeDatabase primaryDB pages select: #isNamedPage)
 		do: [ :b | 
 			(b linkedPagesInDatabase: self database)

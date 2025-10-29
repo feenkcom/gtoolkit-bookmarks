@@ -250,14 +250,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T15:24:15.465693+01:00"
+									"dateAndTimeString" : "2025-10-29T16:53:29.350012+01:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "yS8cL67+DQC73WibDfL0+g=="
 							},
-							"code" : "page2BookmarkMap := ((LeDatabase gtBook pages select: #isNamedPage)\r\t\tcollect: [ :p | p -> OrderedCollection new ]) asDictionary.\r(LeDatabase primaryDB pages select: #isNamedPage)\r\tdo: [ :b | \r\t\t(b linkedPagesInDatabase: LeDatabase gtBook)\r\t\t\tdo: [ :p | (page2BookmarkMap at: p) add: b ] ].\rpage2BookmarkMap"
+							"code" : "page2BookmarkMap := ((LeDatabase gtBook pages select: #isNamedPage)\r\t\tcollect: [ :p | p -> Set new ]) asDictionary.\r(LeDatabase primaryDB pages select: #isNamedPage)\r\tdo: [ :b | \r\t\t(b linkedPagesInDatabase: LeDatabase gtBook)\r\t\t\tdo: [ :p | (page2BookmarkMap at: p) add: b ] ].\rpage2BookmarkMap"
 						},
 						{
 							"__type" : "pharoSnippet",
@@ -284,14 +284,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T15:12:59.19182+01:00"
+									"dateAndTimeString" : "2025-10-29T16:53:51.183409+01:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "tYzxba7+DQCJ9lzFDfL0+g=="
 							},
-							"code" : "bookmark2PageMap := ((LeDatabase primaryDB pages select: #isNamedPage)\r\t\tcollect: [ :b | b -> (b linkedPagesInDatabase: LeDatabase gtBook) ])\r\t\tasDictionary"
+							"code" : "bookmark2PageMap := ((LeDatabase primaryDB pages select: #isNamedPage)\r\t\tcollect: [ :b | b -> (b linkedPagesInDatabase: LeDatabase gtBook) asSet ])\r\t\tasDictionary"
 						},
 						{
 							"__type" : "textSnippet",
@@ -497,7 +497,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T15:31:29.309813+01:00"
+									"dateAndTimeString" : "2025-10-29T16:54:29.700807+01:00"
 								}
 							},
 							"uid" : {
@@ -505,6 +505,40 @@
 								"uidString" : "4h1VWK7+DQCG9SwcDfL0+g=="
 							},
 							"code" : "[(LeDatabase gtBook pageNamed: 'Glamorous Toolkit') explicitReferencesFromPrimaryDB] timeToRun"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T16:51:27.788002+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-10-29T16:54:35.989603+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "UIKj16/+DQC/zFNADHh0dg=="
+							},
+							"code" : "[aPage := (LeDatabase gtBook pageNamed: 'Glamorous Toolkit').\raPage page2BookmarkMap at: aPage] timeToRun"
 						},
 						{
 							"__type" : "textSnippet",
@@ -611,14 +645,14 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-29T15:38:34.025502+01:00"
+												"dateAndTimeString" : "2025-10-29T16:51:04.008747+01:00"
 											}
 										},
 										"uid" : {
 											"__type" : "uid",
 											"uidString" : "x0ic0Kn+DQCnFRDtA9PLdw=="
 										},
-										"code" : "page2BookmarkMap := LeDatabase gtBook pages first page2BookmarkMap.\rbookmarkedPages := (LeDatabase gtBook pages select: #isNamedPage)\r\t\tselect: [ :p | (page2BookmarkMap at: p) isNotEmpty ]"
+										"code" : "page2BookmarkMap := LeDatabase gtBook pages first page2BookmarkMap.\rbookmarkedPages := page2BookmarkMap keys\r\t\tselect: [ :p | (page2BookmarkMap at: p) isNotEmpty ]"
 									},
 									{
 										"__type" : "pharoSnippet",
@@ -679,14 +713,14 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-29T15:38:37.624489+01:00"
+												"dateAndTimeString" : "2025-10-29T16:51:13.428355+01:00"
 											}
 										},
 										"uid" : {
 											"__type" : "uid",
 											"uidString" : "2NdLyq7+DQCVs5w6DfL0+g=="
 										},
-										"code" : "bookmark2PageMap := LeDatabase gtBook pages first bookmark2PageMap.\rbookmarks := (LeDatabase primaryDB pages select: #isNamedPage)\r\t\tselect: [ :p | (bookmark2PageMap at: p) isNotEmpty ]"
+										"code" : "bookmark2PageMap := LeDatabase gtBook pages first bookmark2PageMap.\rbookmarks := bookmark2PageMap keys\r\t\tselect: [ :p | (bookmark2PageMap at: p) isNotEmpty ]"
 									}
 								]
 							},
