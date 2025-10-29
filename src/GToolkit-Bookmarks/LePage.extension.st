@@ -1,6 +1,15 @@
 Extension { #name : #LePage }
 
 { #category : #'*GToolkit-Bookmarks' }
+LePage >> bookmark2PageMap [
+	"Map from all bookmark pages in the primary db to pages in this page's database.
+	Reverse of `self page2BookmarkMap`."
+
+	^ ((LeDatabase primaryDB pages select: #isNamedPage)
+		collect: [ :b | b -> (b linkedPagesInDatabase: self database) ]) asDictionary
+]
+
+{ #category : #'*GToolkit-Bookmarks' }
 LePage >> bookmarkRegistry [
 	^ self database isVolatile
 		ifTrue: [ BookmarkRegistry forTesting ]
@@ -78,6 +87,36 @@ LePage >> hasBookmark [
 { #category : #'*GToolkit-Bookmarks' }
 LePage >> isBookmark [
 	^ self bookmarkRegistry bookmarks includes: self
+]
+
+{ #category : #'*GToolkit-Bookmarks' }
+LePage >> linkedPagesInDatabase: aDatabase [
+	^ (self linksToDatabase: aDatabase) collect: [ :l | l targetReference content ]
+]
+
+{ #category : #'*GToolkit-Bookmarks' }
+LePage >> linksToDatabase: aDatabase [
+	^ self allOutgoingExplicitLinks items
+		select: [ :link | 
+			link isTextualLink
+				and: [ link targetReference content notNil
+						and: [ link targetReference content isNamedPage
+								and: [ link targetReference content database = aDatabase ] ] ] ]
+]
+
+{ #category : #'*GToolkit-Bookmarks' }
+LePage >> page2BookmarkMap [
+	"Map from all pages in this database to bookmark pages in the primary db with links to pages
+	in this database. Reverse of `self bookmark2PageMap`."
+
+	| page2BookmarkMap |
+	page2BookmarkMap := ((self database pages select: #isNamedPage)
+			collect: [ :p | p -> OrderedCollection new ]) asDictionary.
+	(LeDatabase primaryDB pages select: #isNamedPage)
+		do: [ :b | 
+			(b linkedPagesInDatabase: self database)
+				do: [ :p | (page2BookmarkMap at: p) add: b ] ].
+	^ page2BookmarkMap
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
