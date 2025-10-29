@@ -8,6 +8,22 @@ LePage >> bookmarkRegistry [
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
+LePage >> explicitReferencesFromPrimaryDB [
+	"These are the private db pages that 'bookmark' this page.
+	Similar to explicitReferences, but we also check that the link 
+	really points to this page, not just one with the same title."
+
+	^ (LeDatabase primaryDB pages
+		select: [ :page | 
+			page allOutgoingExplicitLinks items
+				detect: [ :link | 
+					link isTextualLink
+						and: [ link targetPageTitle = self title and: [ link targetReference content = self ] ] ]
+				ifFound: [ true ]
+				ifNone: [ false ] ]) sort: [ :a :b | a title < b title ]
+]
+
+{ #category : #'*GToolkit-Bookmarks' }
 LePage >> gtBookmarkActionFor: anAction [
 	<lePageAction>
 	self isBookmark ifTrue: [ ^ anAction empty ].
@@ -20,12 +36,12 @@ LePage >> gtBookmarkActionFor: anAction [
 		action: [ :aButton | 
 			| bookmarkPage |
 			bookmarkPage := self bookmarkRegistry ensureBookmarkFor: self.
-			aButton phlow fireViewUpdateWish.
+			aButton icon: BrGlamorousVectorIcons bookmarkFilled.
 			aButton phlow spawnObject: bookmarkPage ];
 		primaryModifierAction: [ :aButton | 
 			| bookmarkPage |
 			bookmarkPage := self bookmarkRegistry ensureBookmarkFor: self.
-			aButton phlow fireViewUpdateWish.
+			aButton icon: BrGlamorousVectorIcons bookmarkFilled.
 			aButton phlow showObject: bookmarkPage ]
 ]
 
