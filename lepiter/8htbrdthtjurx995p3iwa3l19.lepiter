@@ -109,14 +109,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-28T09:40:41.131452+01:00"
+									"dateAndTimeString" : "2025-11-05T13:55:21.853293+01:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "8+ktFIn+DQCucATaAKhRNw=="
 							},
-							"code" : "BookmarkRegistry default"
+							"code" : "BookmarkRegistryOLD default"
 						},
 						{
 							"__type" : "textSnippet",
@@ -148,7 +148,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-28T08:53:06.479945+01:00"
+												"dateAndTimeString" : "2025-11-05T13:57:23.199055+01:00"
 											}
 										},
 										"uid" : {
@@ -158,7 +158,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "The two volatile databases must share a monitor for links to work.\nHave the test database reuse the volatile monitor of the test registry.\nHave the base test registry reset the singletons so we always start from an empty set of bookmarks.\nWe set the  monitor explicitly in {{gtMethod:name=BookmarkRegistryExamples>>#sourceDatabase}}, but this does not seem to be enough."
+										"string" : "The two volatile databases must share a monitor for links to work.\nHave the test database reuse the volatile monitor of the test registry.\nHave the base test registry reset the singletons so we always start from an empty set of bookmarks.\nWe set the  monitor explicitly in {{gtMethod:name=BookmarkRegistryOldExamples>>#sourceDatabase}}, but this does not seem to be enough."
 									}
 								]
 							},
@@ -485,14 +485,14 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T11:53:57.938913+01:00"
+												"dateAndTimeString" : "2025-11-05T13:55:21.852408+01:00"
 											}
 										},
 										"uid" : {
 											"__type" : "uid",
 											"uidString" : "hjTeL4L+DQCnmNqyBQ8dwQ=="
 										},
-										"code" : "BookmarkRegistry default"
+										"code" : "BookmarkRegistryOLD default"
 									},
 									{
 										"__type" : "pharoSnippet",
@@ -519,14 +519,14 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T11:54:21.160846+01:00"
+												"dateAndTimeString" : "2025-11-05T13:55:21.617127+01:00"
 											}
 										},
 										"uid" : {
 											"__type" : "uid",
 											"uidString" : "5rIrdYP+DQCoQBg9BQ8dwQ=="
 										},
-										"code" : "BookmarkRegistry forTesting"
+										"code" : "BookmarkRegistryOLD forTesting"
 									},
 									{
 										"__type" : "textSnippet",
@@ -590,14 +590,14 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T17:13:48.364255+01:00"
+												"dateAndTimeString" : "2025-11-05T13:55:21.616061+01:00"
 											}
 										},
 										"uid" : {
 											"__type" : "uid",
 											"uidString" : "XpyQ6If+DQCT8OL+AKhRNw=="
 										},
-										"code" : "BookmarkRegistry reset"
+										"code" : "BookmarkRegistryOLD reset"
 									},
 									{
 										"__type" : "textSnippet",
@@ -657,7 +657,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T09:30:43.427557+01:00"
+									"dateAndTimeString" : "2025-11-05T13:55:21.854618+01:00"
 								}
 							},
 							"uid" : {
@@ -667,7 +667,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Create a {{gtClass:name=BookmarkRegistry}} class."
+							"string" : "Create a {{gtClass:name=BookmarkRegistryOLD}} class."
 						},
 						{
 							"__type" : "textSnippet",
@@ -699,7 +699,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T12:03:31.399293+01:00"
+												"dateAndTimeString" : "2025-11-05T13:57:23.211314+01:00"
 											}
 										},
 										"uid" : {
@@ -709,7 +709,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "Create in-memory database for testing: {{gtMethod:name=BookmarkRegistryExamples>>#sourceDatabase}}"
+										"string" : "Create in-memory database for testing: {{gtMethod:name=BookmarkRegistryOldExamples>>#sourceDatabase}}"
 									},
 									{
 										"__type" : "textSnippet",
@@ -736,7 +736,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T12:04:28.49041+01:00"
+												"dateAndTimeString" : "2025-11-05T13:57:23.211809+01:00"
 											}
 										},
 										"uid" : {
@@ -746,7 +746,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "There is also an in-memory other is a target holding the bookmarks: {{gtMethod:name=BookmarkRegistryExamples>>#sourceDatabase}}"
+										"string" : "There is also an in-memory other is a target holding the bookmarks: {{gtMethod:name=BookmarkRegistryOldExamples>>#sourceDatabase}}"
 									}
 								]
 							},
@@ -769,7 +769,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T10:10:30.75979+01:00"
+									"dateAndTimeString" : "2025-11-05T13:57:23.199795+01:00"
 								}
 							},
 							"uid" : {
@@ -779,7 +779,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Create a {{gtClass:name=BookmarkRegistryExamples}} class."
+							"string" : "Create a {{gtClass:name=BookmarkRegistryOldExamples}} class."
 						},
 						{
 							"__type" : "textSnippet",
@@ -848,7 +848,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T13:40:40.863972+01:00"
+												"dateAndTimeString" : "2025-11-05T13:57:23.212273+01:00"
 											}
 										},
 										"uid" : {
@@ -858,7 +858,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "- Empty bookmarks: page hasBookmark is false. page database bookmarks is empty.\n{{gtMethod:name=BookmarkRegistryExamples>>#page1HasNoBookmark}}"
+										"string" : "- Empty bookmarks: page hasBookmark is false. page database bookmarks is empty.\n{{gtMethod:name=BookmarkRegistryOldExamples>>#page1HasNoBookmark}}"
 									},
 									{
 										"__type" : "textSnippet",
@@ -885,7 +885,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T13:40:53.033053+01:00"
+												"dateAndTimeString" : "2025-11-05T13:57:23.196309+01:00"
 											}
 										},
 										"uid" : {
@@ -895,7 +895,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "- Create bookmark: page hasBookmark. bookmarks notEmpty.\n{{gtMethod:name=BookmarkRegistryExamples>>#page1GetsBookmark}}"
+										"string" : "- Create bookmark: page hasBookmark. bookmarks notEmpty.\n{{gtMethod:name=BookmarkRegistryOldExamples>>#page1GetsBookmark}}"
 									},
 									{
 										"__type" : "textSnippet",
@@ -922,7 +922,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T14:00:13.292138+01:00"
+												"dateAndTimeString" : "2025-11-05T13:57:23.210755+01:00"
 											}
 										},
 										"uid" : {
@@ -932,7 +932,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "- Delete bookmark.\n{{gtMethod:name=BookmarkRegistryExamples>>#page1DeletesBookmark}}"
+										"string" : "- Delete bookmark.\n{{gtMethod:name=BookmarkRegistryOldExamples>>#page1DeletesBookmark}}"
 									}
 								]
 							},
@@ -1034,14 +1034,14 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T18:22:43.023596+01:00"
+												"dateAndTimeString" : "2025-11-05T13:55:21.755404+01:00"
 											}
 										},
 										"uid" : {
 											"__type" : "uid",
 											"uidString" : "EayGS4j+DQChmJiiAKhRNw=="
 										},
-										"code" : "bookmarkPages := BookmarkRegistry default database pages\r\t\tselect: [ :p | p title beginsWith: 'Bookmark for: ' ].\rgtBmPage := bookmarkPages detect: [ :p | p title = 'Bookmark for: Glamorous Toolkit' ].\rgtBmPage children first outgoingExplicitLinks first targetReference content."
+										"code" : "bookmarkPages := BookmarkRegistryOLD default database pages\r\t\tselect: [ :p | p title beginsWith: 'Bookmark for: ' ].\rgtBmPage := bookmarkPages detect: [ :p | p title = 'Bookmark for: Glamorous Toolkit' ].\rgtBmPage children first outgoingExplicitLinks first targetReference content."
 									},
 									{
 										"__type" : "textSnippet",
@@ -1068,7 +1068,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T18:29:37.09433+01:00"
+												"dateAndTimeString" : "2025-11-05T13:55:21.784326+01:00"
 											}
 										},
 										"uid" : {
@@ -1078,7 +1078,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "Now, to build the dictionary: {{gtMethod:name=BookmarkRegistry>>#initializeDatabaseMap}}"
+										"string" : "Now, to build the dictionary: {{gtMethod:name=BookmarkRegistryOLD>>#initializeDatabaseMap}}"
 									},
 									{
 										"__type" : "pharoSnippet",
@@ -1105,14 +1105,14 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T18:29:29.398426+01:00"
+												"dateAndTimeString" : "2025-11-05T13:55:21.78389+01:00"
 											}
 										},
 										"uid" : {
 											"__type" : "uid",
 											"uidString" : "5+gT0oj+DQCqViu4AKhRNw=="
 										},
-										"code" : "BookmarkRegistry reset.\rBookmarkRegistry default."
+										"code" : "BookmarkRegistryOLD reset.\rBookmarkRegistryOLD default."
 									}
 								]
 							},
@@ -1289,7 +1289,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T19:30:15.761836+01:00"
+												"dateAndTimeString" : "2025-11-05T13:55:21.662425+01:00"
 											}
 										},
 										"uid" : {
@@ -1299,7 +1299,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "- Registry list of bookmarks, with update action.\n{{gtMethod:name=BookmarkRegistry>>#gtBookmarksFor:}}"
+										"string" : "- Registry list of bookmarks, with update action.\n{{gtMethod:name=BookmarkRegistryOLD>>#gtBookmarksFor:}}"
 									}
 								]
 							},

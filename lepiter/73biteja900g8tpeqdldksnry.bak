@@ -497,14 +497,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T16:52:07.99266+01:00"
+									"dateAndTimeString" : "2025-10-29T16:54:29.700807+01:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "4h1VWK7+DQCG9SwcDfL0+g=="
 							},
-							"code" : "(LeDatabase gtBook pageNamed: 'Glamorous Toolkit') explicitReferencesFromPrimaryDB"
+							"code" : "[(LeDatabase gtBook pageNamed: 'Glamorous Toolkit') explicitReferencesFromPrimaryDB] timeToRun"
 						},
 						{
 							"__type" : "pharoSnippet",
@@ -531,51 +531,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T16:52:00.434228+01:00"
+									"dateAndTimeString" : "2025-10-29T16:54:35.989603+01:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "UIKj16/+DQC/zFNADHh0dg=="
 							},
-							"code" : "aPage := (LeDatabase gtBook pageNamed: 'Glamorous Toolkit').\raPage page2BookmarkMap at: aPage"
-						},
-						{
-							"__type" : "textSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [ ]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T15:05:52.735134+01:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T15:05:52.735134+01:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "0UcKXq7+DQCJEhA7DfL0+g=="
-							},
-							"paragraphStyle" : {
-								"__type" : "textStyle"
-							},
-							"string" : ""
+							"code" : "[aPage := (LeDatabase gtBook pageNamed: 'Glamorous Toolkit').\raPage page2BookmarkMap at: aPage] timeToRun"
 						}
 					]
 				},

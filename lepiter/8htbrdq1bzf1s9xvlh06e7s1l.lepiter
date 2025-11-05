@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-29T14:05:52.240458+01:00"
+						"dateAndTimeString" : "2025-11-05T13:32:04.192851+01:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Current version:"
+				"string" : "https://github.com/feenkcom/gtoolkit-bookmarksCurrent version:"
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -66,95 +66,57 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-29T14:05:45.236537+01:00"
+						"dateAndTimeString" : "2025-11-05T13:55:21.708943+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "nizshq3+DQCgzQQsDfL0+g=="
 				},
-				"code" : "BookmarkRegistry default"
+				"code" : "BookmarkRegistryOLD default"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-10-27T20:20:06.408834+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2025-11-05T13:40:20.070751+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "Ir8fhor+DQCwSOwyCyymog=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Issue [#4806](https://github.com/feenkcom/gtoolkit/issues/4806)\nRepo [](https://github.com/feenkcom/gtoolkit-bookmarks)\nfeenkcom/gtoolkit#4806"
 			},
 			{
 				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
 					"items" : [
-						{
-							"__type" : "textSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [
-									{
-										"__type" : "textSnippet",
-										"children" : {
-											"__type" : "snippets",
-											"items" : [ ]
-										},
-										"createEmail" : {
-											"__type" : "email",
-											"emailString" : "<unknown>"
-										},
-										"createTime" : {
-											"__type" : "time",
-											"time" : {
-												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T09:27:59.473778+01:00"
-											}
-										},
-										"editEmail" : {
-											"__type" : "email",
-											"emailString" : "<unknown>"
-										},
-										"editTime" : {
-											"__type" : "time",
-											"time" : {
-												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T20:20:06.418382+01:00"
-											}
-										},
-										"uid" : {
-											"__type" : "uid",
-											"uidString" : "MBr6aYH+DQCs0TCZBv18jw=="
-										},
-										"paragraphStyle" : {
-											"__type" : "textStyle"
-										},
-										"string" : "feenkcom/gtoolkit#4806"
-									}
-								]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T20:20:06.408834+01:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T20:20:06.408834+01:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "Ir8fhor+DQCwSOwyCyymog=="
-							},
-							"paragraphStyle" : {
-								"__type" : "textStyle"
-							},
-							"string" : "Issue [#4806](https://github.com/feenkcom/gtoolkit/issues/4806)\nRepo [](https://github.com/feenkcom/gtoolkit-bookmarks)"
-						},
 						{
 							"__type" : "textSnippet",
 							"children" : {

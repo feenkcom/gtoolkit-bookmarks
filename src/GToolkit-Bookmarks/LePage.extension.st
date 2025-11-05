@@ -12,8 +12,8 @@ LePage >> bookmark2PageMap [
 { #category : #'*GToolkit-Bookmarks' }
 LePage >> bookmarkRegistry [
 	^ self database isVolatile
-		ifTrue: [ BookmarkRegistry forTesting ]
-		ifFalse: [ BookmarkRegistry default ]
+		ifTrue: [ BookmarkRegistryOLD forTesting ]
+		ifFalse: [ BookmarkRegistryOLD default ]
 ]
 
 { #category : #'*GToolkit-Bookmarks' }

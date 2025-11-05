@@ -1,14 +1,18 @@
 "
+*Caveat:* This is the old design, where bookmarks are pages with a title starting with `Bookmark for ...`
+
+---
+
 I keep track of which bookmarks exist for a source database in the target database where they are stored.
 
 Normally I am a singleton, with the target being the private database of the user.
 ```
-BookmarkRegistry default
+BookmarkRegistryOLD default
 ```
 
 I can also have a testing instance that uses in-memory databases.
 ```
-BookmarkRegistry forTesting
+BookmarkRegistryOLD forTesting
 ```
 
 Data:
@@ -17,7 +21,7 @@ Data:
 NB: the latter may be needed in case of conflicts.
 "
 Class {
-	#name : #BookmarkRegistry,
+	#name : #BookmarkRegistryOLD,
 	#superclass : #Object,
 	#traits : 'TGtUniqueInstance',
 	#classTraits : 'TGtUniqueInstance classTrait',
@@ -33,19 +37,19 @@ Class {
 }
 
 { #category : #cleanup }
-BookmarkRegistry class >> cleanTestInstance [
+BookmarkRegistryOLD class >> cleanTestInstance [
 	testInstance := nil
 ]
 
 { #category : #'instance creation' }
-BookmarkRegistry class >> forTesting [
+BookmarkRegistryOLD class >> forTesting [
 	"For testing purposes we have a `second singleton' that uses volatile databases."
 
 	^ self testInstance
 ]
 
 { #category : #cleanup }
-BookmarkRegistry class >> reset [
+BookmarkRegistryOLD class >> reset [
 	"Resetting the registry will clear the singletons, forcing a fresh instance to be created and initialized.
 	This will refresh the map, and, in the case of the test registry, will also empty the bookmark database."
 
@@ -54,7 +58,7 @@ BookmarkRegistry class >> reset [
 ]
 
 { #category : #'instance creation' }
-BookmarkRegistry class >> testInstance [
+BookmarkRegistryOLD class >> testInstance [
 	"For testing purposes we have a `second singleton' that uses volatile databases."
 
 	^ testInstance
@@ -64,7 +68,7 @@ BookmarkRegistry class >> testInstance [
 ]
 
 { #category : #updating }
-BookmarkRegistry >> addBookmarkFor: aPage [
+BookmarkRegistryOLD >> addBookmarkFor: aPage [
 	"To do: detect conflict in page names and generate a new, unique name for the bookmark page."
 
 	| bookmarkPage |
@@ -76,31 +80,31 @@ BookmarkRegistry >> addBookmarkFor: aPage [
 ]
 
 { #category : #testing }
-BookmarkRegistry >> allBookmarksExist [
+BookmarkRegistryOLD >> allBookmarksExist [
 	"If a bookmark page is deleted, the map will contain invalid bopokmarks."
 
 	^ (self bookmarks reject: [ :bm | bm database isDatabase ]) isEmpty
 ]
 
 { #category : #querying }
-BookmarkRegistry >> bookmarkPageFor: aPage [
+BookmarkRegistryOLD >> bookmarkPageFor: aPage [
 	^ self page2BookmarkMap at: aPage
 ]
 
 { #category : #querying }
-BookmarkRegistry >> bookmarks [
+BookmarkRegistryOLD >> bookmarks [
 	^ self page2BookmarkMap values
 ]
 
 { #category : #updating }
-BookmarkRegistry >> checkAllBookmarksExist [
+BookmarkRegistryOLD >> checkAllBookmarksExist [
 	"We can also do this any time a single bookmark fails to exist."
 
 	^ self allBookmarksExist ifFalse: [ self initializePage2BookmarkMap ]
 ]
 
 { #category : #accessing }
-BookmarkRegistry >> database [
+BookmarkRegistryOLD >> database [
 	"The database where bookmarks are stored.
 	This is normally the primary (private) database, unless we are running tests."
 
@@ -108,7 +112,7 @@ BookmarkRegistry >> database [
 ]
 
 { #category : #updating }
-BookmarkRegistry >> ensureBookmarkFor: aPage [
+BookmarkRegistryOLD >> ensureBookmarkFor: aPage [
 	^ self page2BookmarkMap
 		at: aPage
 		ifPresent: [ :p | p ]
@@ -116,7 +120,7 @@ BookmarkRegistry >> ensureBookmarkFor: aPage [
 ]
 
 { #category : #querying }
-BookmarkRegistry >> entries [
+BookmarkRegistryOLD >> entries [
 	"Transform the dictionary to a flat table."
 
 	^ self page2BookmarkMap associations
@@ -127,7 +131,7 @@ BookmarkRegistry >> entries [
 ]
 
 { #category : #views }
-BookmarkRegistry >> gtBookmarksFor: aView [
+BookmarkRegistryOLD >> gtBookmarksFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Bookmarks';
@@ -148,7 +152,7 @@ BookmarkRegistry >> gtBookmarksFor: aView [
 ]
 
 { #category : #views }
-BookmarkRegistry >> gtTestDatabaseFor: aView [
+BookmarkRegistryOLD >> gtTestDatabaseFor: aView [
 	<gtView>
 	self database isVolatile ifFalse: [^ aView empty].
 	^ aView forward
@@ -159,7 +163,7 @@ BookmarkRegistry >> gtTestDatabaseFor: aView [
 ]
 
 { #category : #testing }
-BookmarkRegistry >> hasBookmarkFor: aPage [
+BookmarkRegistryOLD >> hasBookmarkFor: aPage [
 	"Sanity check: if the bookmark no longer exists, we reinitialize the map."
 
 	^ self page2BookmarkMap
@@ -173,14 +177,14 @@ BookmarkRegistry >> hasBookmarkFor: aPage [
 ]
 
 { #category : #initialization }
-BookmarkRegistry >> initialize [
+BookmarkRegistryOLD >> initialize [
 	super initialize.
 	database := LeDatabase primaryDB.
 	self initializePage2BookmarkMap
 ]
 
 { #category : #initialization }
-BookmarkRegistry >> initializeForTesting [
+BookmarkRegistryOLD >> initializeForTesting [
 	"Use an in-memory db for testing."
 
 	database := LeDatabase new monitor: LeVolatileMonitor new.
@@ -190,7 +194,7 @@ BookmarkRegistry >> initializeForTesting [
 ]
 
 { #category : #initialization }
-BookmarkRegistry >> initializePage2BookmarkMap [
+BookmarkRegistryOLD >> initializePage2BookmarkMap [
 	page2BookmarkMap := ((self database pages
 			select: [ :p | p title beginsWith: 'Bookmark for: ' ])
 			collect: [ :bookmark | (self pageForBookmark: bookmark) -> bookmark ])
@@ -198,7 +202,7 @@ BookmarkRegistry >> initializePage2BookmarkMap [
 ]
 
 { #category : #updating }
-BookmarkRegistry >> newBookmarkPageFor: aPage [
+BookmarkRegistryOLD >> newBookmarkPageFor: aPage [
 	^ (LePage named: 'Bookmark for: ' , aPage title)
 		addSnippet: (LeTextSnippet new
 				string: 'Bookmark for: ' , aPage asRemoteLink;
@@ -210,22 +214,22 @@ BookmarkRegistry >> newBookmarkPageFor: aPage [
 ]
 
 { #category : #accessing }
-BookmarkRegistry >> page2BookmarkMap [
+BookmarkRegistryOLD >> page2BookmarkMap [
 	^ page2BookmarkMap
 ]
 
 { #category : #querying }
-BookmarkRegistry >> pageForBookmark: aBookmarkPage [
+BookmarkRegistryOLD >> pageForBookmark: aBookmarkPage [
 	^ aBookmarkPage children first outgoingExplicitLinks first targetReference content
 ]
 
 { #category : #querying }
-BookmarkRegistry >> pages [
+BookmarkRegistryOLD >> pages [
 	^ self page2BookmarkMap keys
 ]
 
 { #category : #updating }
-BookmarkRegistry >> removeBookmarkFor: aPage [
+BookmarkRegistryOLD >> removeBookmarkFor: aPage [
 	self assert: (self hasBookmarkFor: aPage).
 	(self page2BookmarkMap at: aPage) removeSelf.
 	self page2BookmarkMap removeKey: aPage.

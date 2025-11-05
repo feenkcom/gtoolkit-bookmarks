@@ -1,5 +1,5 @@
 Class {
-	#name : #BookmarkRegistryExamples,
+	#name : #BookmarkRegistryOldExamples,
 	#superclass : #Object,
 	#traits : 'TDatabaseHolder',
 	#classTraits : 'TDatabaseHolder classTrait',
@@ -7,18 +7,18 @@ Class {
 }
 
 { #category : #examples }
-BookmarkRegistryExamples >> cleanTestRegistry [
+BookmarkRegistryOldExamples >> cleanTestRegistry [
 	<gtExample>
 	| registry |
-	BookmarkRegistry reset.
-	registry := BookmarkRegistry forTesting.
+	BookmarkRegistryOLD reset.
+	registry := BookmarkRegistryOLD forTesting.
 	self assert: registry database isVolatile.
 	self assert: registry bookmarks isEmpty.
 	^ registry
 ]
 
 { #category : #examples }
-BookmarkRegistryExamples >> gtBookPageGetsBookmark [
+BookmarkRegistryOldExamples >> gtBookPageGetsBookmark [
 	<gtExample>
 	| db registry gtPage bookmarkPage |
 	db := LeDatabase gtBook.
@@ -31,7 +31,7 @@ BookmarkRegistryExamples >> gtBookPageGetsBookmark [
 ]
 
 { #category : #page }
-BookmarkRegistryExamples >> gtPage [
+BookmarkRegistryOldExamples >> gtPage [
 	<lePage>
 	<gtExample>
 	<noTest>
@@ -43,7 +43,7 @@ BookmarkRegistryExamples >> gtPage [
 ]
 
 { #category : #examples }
-BookmarkRegistryExamples >> gtPageGetsBookmark [
+BookmarkRegistryOldExamples >> gtPageGetsBookmark [
 	<gtExample>
 	| db registry gtPage bookmarkPage |
 	db := self sourceDatabase.
@@ -56,7 +56,7 @@ BookmarkRegistryExamples >> gtPageGetsBookmark [
 ]
 
 { #category : #page }
-BookmarkRegistryExamples >> page1 [
+BookmarkRegistryOldExamples >> page1 [
 	<lePage>
 	<gtExample>
 	<noTest>
@@ -71,7 +71,7 @@ BookmarkRegistryExamples >> page1 [
 ]
 
 { #category : #examples }
-BookmarkRegistryExamples >> page1DeletesBookmark [
+BookmarkRegistryOldExamples >> page1DeletesBookmark [
 	<gtExample>
 	| p1 registry db |
 	db := self page1GetsBookmark.
@@ -84,7 +84,7 @@ BookmarkRegistryExamples >> page1DeletesBookmark [
 ]
 
 { #category : #examples }
-BookmarkRegistryExamples >> page1GetsBookmark [
+BookmarkRegistryOldExamples >> page1GetsBookmark [
 	<gtExample>
 	| p1 registry db |
 	db := self page1HasNoBookmark.
@@ -97,7 +97,7 @@ BookmarkRegistryExamples >> page1GetsBookmark [
 ]
 
 { #category : #examples }
-BookmarkRegistryExamples >> page1HasNoBookmark [
+BookmarkRegistryOldExamples >> page1HasNoBookmark [
 	<gtExample>
 	| db p1 registry |
 	db := self sourceDatabase.
@@ -109,7 +109,7 @@ BookmarkRegistryExamples >> page1HasNoBookmark [
 ]
 
 { #category : #page }
-BookmarkRegistryExamples >> page2 [
+BookmarkRegistryOldExamples >> page2 [
 	<lePage>
 	<gtExample>
 	<noTest>
@@ -124,7 +124,7 @@ BookmarkRegistryExamples >> page2 [
 ]
 
 { #category : #page }
-BookmarkRegistryExamples >> page3 [
+BookmarkRegistryOldExamples >> page3 [
 	<lePage>
 	<gtExample>
 	<noTest>
@@ -139,7 +139,7 @@ BookmarkRegistryExamples >> page3 [
 ]
 
 { #category : #examples }
-BookmarkRegistryExamples >> sourceDatabase [
+BookmarkRegistryOldExamples >> sourceDatabase [
 	<gtExample>
 	| db |
 	db := self database monitor: self cleanTestRegistry database monitor.
@@ -149,13 +149,13 @@ BookmarkRegistryExamples >> sourceDatabase [
 ]
 
 { #category : #examples }
-BookmarkRegistryExamples >> testRegistry [
+BookmarkRegistryOldExamples >> testRegistry [
 	"NB: This will return the singleton in its current state, not a fresh one.
 	To get a fresh registry use cleanTestRegistry."
 
 	<gtExample>
 	| registry |
-	registry := BookmarkRegistry forTesting.
+	registry := BookmarkRegistryOLD forTesting.
 	self assert: registry database isVolatile.
 	^ registry
 ]

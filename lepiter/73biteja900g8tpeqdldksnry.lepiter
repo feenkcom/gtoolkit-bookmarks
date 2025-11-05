@@ -539,43 +539,6 @@
 								"uidString" : "UIKj16/+DQC/zFNADHh0dg=="
 							},
 							"code" : "[aPage := (LeDatabase gtBook pageNamed: 'Glamorous Toolkit').\raPage page2BookmarkMap at: aPage] timeToRun"
-						},
-						{
-							"__type" : "textSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [ ]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T15:05:52.735134+01:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-29T15:05:52.735134+01:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "0UcKXq7+DQCJEhA7DfL0+g=="
-							},
-							"paragraphStyle" : {
-								"__type" : "textStyle"
-							},
-							"string" : ""
 						}
 					]
 				},
@@ -846,12 +809,12 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2025-10-29T09:34:02.151201+01:00"
+			"dateAndTimeString" : "2025-11-05T14:17:14.522129+01:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "Generalizing boookmarks to any referencing pages"
+		"title" : "Generalizing bookmarks to any referencing pages"
 	},
 	"uid" : {
 		"__type" : "uuid",
