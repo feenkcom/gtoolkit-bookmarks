@@ -43,9 +43,10 @@ LeBookmarks >> bookmarkPageTitle: aPage [
 { #category : #querying }
 LeBookmarks >> bookmarkPages [
 	"Pages with external links."
-	^ (self bookmark2Pages associations
+
+	^ ((self bookmark2Pages associations
 		select: [ :bp | bp value isNotEmpty ]
-		thenCollect: [ :bp | bp key ]) sortedAs: #title
+		thenCollect: [ :bp | bp key ]) sortedAs: #title) asOrderedCollection
 ]
 
 { #category : #querying }
@@ -57,9 +58,9 @@ LeBookmarks >> bookmarksFor: aPage [
 
 { #category : #querying }
 LeBookmarks >> bookmarksForDatabase: aDatabase [
-	^ (self bookmark2Pages associations
+	^ ((self bookmark2Pages associations
 		select: [ :bp | (bp value collect: #database) includes: aDatabase ]
-		thenCollect: [ :bp | bp key ]) sortedAs: #title
+		thenCollect: [ :bp | bp key ]) sortedAs: #title) asOrderedCollection
 ]
 
 { #category : #updating }
@@ -100,7 +101,7 @@ LeBookmarks >> gtLinksFor: aView [
 	^ aView columnedList
 		title: 'Links';
 		priority: 20;
-		items: [ self page2Bookmarks keys sortedAs: #title ];
+		items: [ self linkedPages sortedAs: #title ];
 		column: 'Index'
 			text: [ :eachItem :eachIndex | eachIndex asRopedText foreground: Color gray ]
 			width: 45;
@@ -117,6 +118,16 @@ LeBookmarks >> gtLinksFor: aView [
 			text: [ :each | self summaryFor: (self bookmarksFor: each) ]
 			width: 200;
 		send: [ :each | LePages new items: (self bookmarksFor: each) ];
+		actionUpdateButton
+]
+
+{ #category : #views }
+LeBookmarks >> gtMondrianMapFor: aView [
+	<gtView>
+	^ aView mondrian
+		title: 'Map';
+		priority: 40;
+		painting: [ :aMondrian | self mapFor: aMondrian withNodes: self bookmarkPages , self linkedPages ];
 		actionUpdateButton
 ]
 
@@ -152,6 +163,11 @@ LeBookmarks >> hasBookmarkPageFor: aPage [
 ]
 
 { #category : #querying }
+LeBookmarks >> linkedPages [
+	^ self page2Bookmarks keys
+]
+
+{ #category : #querying }
 LeBookmarks >> linkedPagesFor: aPage [
 	"Given a private page, return the external pages it links to (bookmarks)."
 
@@ -162,6 +178,42 @@ LeBookmarks >> linkedPagesFor: aPage [
 LeBookmarks >> linkedPagesSummaryFor: aBookmarkPage [
 	^ self
 		summaryFor: ((self linkedPagesFor: aBookmarkPage) asOrderedCollection sortedAs: #title)
+]
+
+{ #category : #mondrian }
+LeBookmarks >> mapFor: aMondrian forDatabase: aDatabase [
+	^ self
+		mapFor: aMondrian
+		withNodes: (self bookmarksForDatabase: aDatabase)
+				, (self linkedPages select: [ :p | p database = aDatabase ])
+]
+
+{ #category : #mondrian }
+LeBookmarks >> mapFor: aMondrian withNodes: aPageCollection [
+	aMondrian nodes
+		stencil: [ :each | 
+			BlElement new
+				size: 5 @ 5;
+				geometry: (each database isPrimary
+						ifTrue: [ BlCircleGeometry new ]
+						ifFalse: [ BlRectangleGeometry new ]);
+				background: (each database isPrimary
+						ifTrue: [ Color blue muchLighter ]
+						ifFalse: [ Color orange lighter ]);
+				aptitude: (BrGlamorousWithExplicitTooltipAptitude text: each title) ];
+		with: aPageCollection.
+
+	aMondrian edges
+		stencil: [ :each | 
+			BlLineElement new
+				zIndex: -1;
+				border: (BlBorder paint: (Color veryVeryLightGray alpha: 0.5)) ];
+		connectToAll: [ :each | 
+			each database isPrimary
+				ifTrue: [ self linkedPagesFor: each ]
+				ifFalse: [ Set new ] ].
+	aMondrian layout force.
+	^ aMondrian
 ]
 
 { #category : #updating }

@@ -75,3 +75,18 @@ LePage >> gtInspectBookmarkActionFor: anAction [
 		menuItemGroup: BrMenuItemGroupConfiguration navigation;
 		action: [ :aButton | aButton phlow spawnObject: LeBookmarks new ]
 ]
+
+{ #category : #'*GToolkit-Bookmarks' }
+LePage >> gtMapForThisDatabaseFor: anAction [
+	<gtAction>
+	self database isPrimary ifTrue: [ ^ anAction empty ].
+	^ anAction button
+		tooltip: 'Map of bookmarks for this database';
+		priority: 25;
+		icon: LeIcons lepiterDatabase;
+		target: LePageActionTarget;
+		menuItemGroup: BrMenuItemGroupConfiguration navigation;
+		action: [ :aButton | 
+			aButton phlow
+				spawnObject: (LeBookmarks new mapFor: GtMondrian new forDatabase: self database) ]
+]
