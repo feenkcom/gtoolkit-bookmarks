@@ -34,7 +34,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-27T10:05:21.609872+01:00"
+									"dateAndTimeString" : "2025-10-27T10:05:56.078508+01:00"
 								}
 							},
 							"uid" : {
@@ -44,7 +44,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Q How can we tell which database a bookmark belongs to?\nHow do we interpret the page link annotation?\n\n\n\nTitle: Bookmark: `<page title>`\nContents: \nBookmark for `<page link>`. \n*My notes ...*\n\nQ Can/should we store an index either as a page (My Bookmarks), or in the properties file?\nKeep it lightweight for starters.\n\nWhat can we do with bookmarks?\nGenerate a “My bookmarks” page for any database.\nHighlight pages that have bookmarks or don't.\nGenerate a topic roadmap of bookmarked pages.\n\nQ Can we tell if a bookmarked page has been renamed or deleted?\nWill the link still be valid if it has been renamed?"
+							"string" : "Q How can we tell which database a bookmark belongs to?\nHow do we interpret the page link annotation?\n\nTitle: Bookmark: `<page title>`\nContents: \nBookmark for `<page link>`. \n*My notes ...*\n\nQ Can/should we store an index either as a page (My Bookmarks), or in the properties file?\nKeep it lightweight for starters.\n\nWhat can we do with bookmarks?\nGenerate a “My bookmarks” page for any database.\nHighlight pages that have bookmarks or don't.\nGenerate a topic roadmap of bookmarked pages.\n\nQ Can we tell if a bookmarked page has been renamed or deleted?\nWill the link still be valid if it has been renamed?"
 						}
 					]
 				},

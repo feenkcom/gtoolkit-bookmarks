@@ -143,7 +143,7 @@ LeBookmarks >> hasBookmarkPageFor: aPage [
 LeBookmarks >> linkedPagesFor: aPage [
 	"Given a private page, return the exteranl pages it links to (bookmarks)."
 
-	^ self bookmark2Pages at: aPage ifAbsent: Set empty
+	^ (self bookmark2Pages at: aPage ifAbsent: Set empty) asOrderedCollection
 ]
 
 { #category : #printing }

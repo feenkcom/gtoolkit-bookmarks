@@ -8,45 +8,7 @@
 				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
-					"items" : [
-						{
-							"__type" : "textSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [ ]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-28T07:57:33.264749+01:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-10-28T07:57:35.348764+01:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "qhhkRJT+DQCivELAA6dFZw=="
-							},
-							"paragraphStyle" : {
-								"__type" : "textStyle"
-							},
-							"string" : "feenkcom/gtoolkit#4806"
-						}
-					]
+					"items" : [ ]
 				},
 				"createEmail" : {
 					"__type" : "email",
@@ -56,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-28T07:57:26.974678+01:00"
+						"dateAndTimeString" : "2025-11-06T15:21:47.435527+01:00"
 					}
 				},
 				"editEmail" : {
@@ -67,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-10-28T07:57:28.656546+01:00"
+						"dateAndTimeString" : "2025-11-06T15:23:03.550365+01:00"
 					}
 				},
 				"uid" : {
@@ -77,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Issue [#4806](https://github.com/feenkcom/gtoolkit/issues/4806)\nRepo [](https://github.com/feenkcom/gtoolkit-bookmarks)"
+				"string" : "*Caveat:* The first prototype used an explicit singleton registry of bookmarks. The new approach dynamically computes private pages that contain external links."
 			},
 			{
 				"__type" : "textSnippet",
@@ -223,7 +185,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-28T08:49:49.425932+01:00"
+												"dateAndTimeString" : "2025-11-06T14:02:39.981182+01:00"
 											}
 										},
 										"uid" : {
@@ -233,7 +195,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "Search for \"fire wish\" methods.\nWe add `aButton phlow fireViewUpdateWish` to {{gtMethod:name=LePage>>#gtBookmarkActionFor:}}, but we need the equivalent for actions, not views."
+										"string" : "Search for \"fire wish\" methods.\nWe add `aButton phlow fireViewUpdateWish` to {{gtMethod:name=LePage>>#gtOLDBookmarkActionFor:}}, but we need the equivalent for actions, not views."
 									}
 								]
 							},
@@ -1177,7 +1139,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T19:24:49.944409+01:00"
+												"dateAndTimeString" : "2025-11-06T14:02:40.031012+01:00"
 											}
 										},
 										"uid" : {
@@ -1187,7 +1149,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "- Create/go to bookmark. Bookmark icon changes appearance if created.\n{{gtMethod:name=LePage>>#gtBookmarkActionFor:}}"
+										"string" : "- Create/go to bookmark. Bookmark icon changes appearance if created.\n{{gtMethod:name=LePage>>#gtOLDBookmarkActionFor:}}"
 									},
 									{
 										"__type" : "textSnippet",
@@ -1613,12 +1575,12 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2025-10-27T09:22:28.393039+01:00"
+			"dateAndTimeString" : "2025-11-06T15:22:20.172401+01:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "Implementation steps"
+		"title" : "First prototype (obsolete)"
 	},
 	"uid" : {
 		"__type" : "uuid",
