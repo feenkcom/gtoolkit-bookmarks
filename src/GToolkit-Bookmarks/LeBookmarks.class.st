@@ -144,6 +144,66 @@ LeBookmarks >> gtPrimaryDBFor: aView [
 		view: #gtLiveFor:
 ]
 
+{ #category : #searching }
+LeBookmarks >> gtSpotterForBookmarkContent: aSearch [
+	<gtSearch>
+	^ aSearch list
+		title: 'Bookmark content';
+		priority: 21;
+		items: [ self bookmarkPages ];
+		itemsLimit: Float infinity;
+		itemName: #title;
+		sendCategory: [ :aCategory :aStep :thisSearch | 
+			LePages new
+				items: (self bookmarkPages select: [ :p | p asMarkdownPage includesSubstring: aStep searchQuery ]) ];
+		filterBySubstring
+]
+
+{ #category : #searching }
+LeBookmarks >> gtSpotterForBookmarkTitles: aSearch [
+	<gtSearch>
+	^ aSearch list
+		title: 'Bookmark titles';
+		priority: 20;
+		items: [ self bookmarkPages ];
+		itemsLimit: Float infinity;
+		itemName: #title;
+		sendCategory: [ :aCategory :aStep :thisSearch | 
+			LePages new
+				items: (self bookmarkPages select: [ :p | p title includesSubstring: aStep searchQuery ]) ];
+		filterBySubstring
+]
+
+{ #category : #searching }
+LeBookmarks >> gtSpotterForPageContent: aSearch [
+	<gtSearch>
+	^ aSearch list
+		title: 'Page content';
+		priority: 25;
+		items: [ self linkedPages ];
+		itemsLimit: Float infinity;
+		itemName: #title;
+		sendCategory: [ :aCategory :aStep :thisSearch | 
+			LePages new
+				items: (self linkedPages select: [ :p | p asMarkdownPage includesSubstring: aStep searchQuery ]) ];
+		filterBySubstring
+]
+
+{ #category : #searching }
+LeBookmarks >> gtSpotterForPageTitles: aSearch [
+	<gtSearch>
+	^ aSearch list
+		title: 'Page titles';
+		priority: 24;
+		items: [ self linkedPages ];
+		itemsLimit: Float infinity;
+		itemName: #title;
+		sendCategory: [ :aCategory :aStep :thisSearch | 
+			LePages new
+				items: (self linkedPages select: [ :p | p title includesSubstring: aStep searchQuery ]) ];
+		filterBySubstring
+]
+
 { #category : #views }
 LeBookmarks >> gtTestDatabaseFor: aView [
 	<gtView>
