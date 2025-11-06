@@ -55,7 +55,7 @@ LeBookmarks >> ensureBookmarkFor: aPage [
 	"Return the page if it exists, else create it."
 
 	^ (self hasBookmarkPageFor: aPage)
-		ifTrue: [ self primaryDB pageNamed: (self bookmarkPageFor: aPage) ]
+		ifTrue: [ self primaryDB pageNamed: (self newBookmarkPageTitle: aPage) ]
 		ifFalse: [ self primaryDB addPage: (self newBookmarkPageFor: aPage) ]
 ]
 

@@ -223,7 +223,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-28T08:49:49.425932+01:00"
+												"dateAndTimeString" : "2025-11-06T14:02:39.981182+01:00"
 											}
 										},
 										"uid" : {
@@ -233,7 +233,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "Search for \"fire wish\" methods.\nWe add `aButton phlow fireViewUpdateWish` to {{gtMethod:name=LePage>>#gtBookmarkActionFor:}}, but we need the equivalent for actions, not views."
+										"string" : "Search for \"fire wish\" methods.\nWe add `aButton phlow fireViewUpdateWish` to {{gtMethod:name=LePage>>#gtOLDBookmarkActionFor:}}, but we need the equivalent for actions, not views."
 									}
 								]
 							},
@@ -1177,7 +1177,7 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-10-27T19:24:49.944409+01:00"
+												"dateAndTimeString" : "2025-11-06T14:02:40.031012+01:00"
 											}
 										},
 										"uid" : {
@@ -1187,7 +1187,7 @@
 										"paragraphStyle" : {
 											"__type" : "textStyle"
 										},
-										"string" : "- Create/go to bookmark. Bookmark icon changes appearance if created.\n{{gtMethod:name=LePage>>#gtBookmarkActionFor:}}"
+										"string" : "- Create/go to bookmark. Bookmark icon changes appearance if created.\n{{gtMethod:name=LePage>>#gtOLDBookmarkActionFor:}}"
 									},
 									{
 										"__type" : "textSnippet",
