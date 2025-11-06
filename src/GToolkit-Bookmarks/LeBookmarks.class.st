@@ -100,6 +100,7 @@ LeBookmarks >> gtLinksFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Links';
+		tooltip: 'These are the pages linked to by the bookmarks.';
 		priority: 20;
 		items: [ self linkedPages sortedAs: #title ];
 		column: 'Index'
@@ -126,6 +127,7 @@ LeBookmarks >> gtMondrianMapFor: aView [
 	<gtView>
 	^ aView mondrian
 		title: 'Map';
+		tooltip: 'A map of bookmarks (blue circles) and the pages they link to (orange squares). Hover or click to see the pages.';
 		priority: 40;
 		painting: [ :aMondrian | self mapFor: aMondrian withNodes: self bookmarkPages , self linkedPages ];
 		actionUpdateButton
