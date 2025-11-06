@@ -741,7 +741,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-11-06T15:48:14.854289+01:00"
+									"dateAndTimeString" : "2025-11-06T15:49:37.326071+01:00"
 								}
 							},
 							"uid" : {
@@ -751,7 +751,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : ""
+							"string" : "Add a Spotter search."
 						},
 						{
 							"__type" : "textSnippet",
