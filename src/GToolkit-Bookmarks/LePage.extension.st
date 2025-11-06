@@ -3,9 +3,10 @@ Extension { #name : #LePage }
 { #category : #'*GToolkit-Bookmarks' }
 LePage >> gtBookmarkedPagesFor: anAction [
 	<gtAction>
-	| pages |
+	| pages pagesSorted |
 	pages := LeBookmarks new linkedPagesFor: self.
 	pages ifEmpty: [ ^ anAction empty ].
+	pagesSorted := LePages new items: (pages sortedAs: #title).
 	self database isPrimary ifFalse: [ ^ anAction empty ].
 	^ anAction button
 		tooltip: 'All (' , pages size printString , ') pages bookmarked from here';
@@ -13,15 +14,17 @@ LePage >> gtBookmarkedPagesFor: anAction [
 		icon: BrGlamorousVectorIcons changes;
 		target: LePageActionTarget;
 		menuItemGroup: BrMenuItemGroupConfiguration navigation;
-		action: [ :aButton | aButton phlow spawnObject: (LePages new items: (pages sortedAs: #title)) ]
+		action: [ :aButton | aButton phlow spawnObject: pagesSorted ];
+		primaryModifierAction: [ :aButton | aButton phlow showObject: pagesSorted ]
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
 LePage >> gtBookmarksFor: anAction [
 	<gtAction>
-	| bookmarks |
+	| bookmarks bookmarksSorted |
 	bookmarks := LeBookmarks new bookmarksFor: self.
 	bookmarks ifEmpty: [ ^ anAction empty ].
+	bookmarksSorted := LePages new items: (bookmarks sortedAs: #title).
 	self database isPrimary ifTrue: [ ^ anAction empty ].
 	^ anAction button
 		tooltip: 'All (' , bookmarks size printString , ') bookmarks for this page';
@@ -29,15 +32,17 @@ LePage >> gtBookmarksFor: anAction [
 		icon: BrGlamorousVectorIcons changes;
 		target: LePageActionTarget;
 		menuItemGroup: BrMenuItemGroupConfiguration navigation;
-		action: [ :aButton | aButton phlow spawnObject: (LePages new items: (bookmarks sortedAs: #title)) ]
+		action: [ :aButton | aButton phlow spawnObject: bookmarksSorted ];
+		primaryModifierAction: [ :aButton | aButton phlow showObject: bookmarksSorted ]
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
 LePage >> gtBookmarksForThisDatabaseFor: anAction [
 	<gtAction>
-	| bookmarks |
+	| bookmarks bookmarksSorted |
 	bookmarks := LeBookmarks new bookmarksForDatabase: self database.
 	bookmarks ifEmpty: [ ^ anAction empty ].
+	bookmarksSorted := LePages new items: (bookmarks sortedAs: #title).
 	self database isPrimary ifTrue: [ ^ anAction empty ].
 	^ anAction button
 		tooltip: 'All (' , bookmarks size printString , ') bookmarks for this database';
@@ -45,7 +50,8 @@ LePage >> gtBookmarksForThisDatabaseFor: anAction [
 		icon: LeIcons lepiterDatabase;
 		target: LePageActionTarget;
 		menuItemGroup: BrMenuItemGroupConfiguration navigation;
-		action: [ :aButton | aButton phlow spawnObject: (LePages new items: (bookmarks sortedAs: #title)) ]
+		action: [ :aButton | aButton phlow spawnObject: bookmarksSorted ];
+		primaryModifierAction: [ :aButton | aButton phlow showObject: bookmarksSorted ]
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
@@ -61,7 +67,11 @@ LePage >> gtCreateBookmarkActionFor: anAction [
 		action: [ :aButton | 
 			| bookmarkPage |
 			bookmarkPage := LeBookmarks new ensureBookmarkFor: self.
-			aButton phlow spawnObject: bookmarkPage ]
+			aButton phlow spawnObject: bookmarkPage ];
+		primaryModifierAction: [ :aButton | 
+			| bookmarkPage |
+			bookmarkPage := LeBookmarks new ensureBookmarkFor: self.
+			aButton phlow showObject: bookmarkPage ]
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
@@ -73,7 +83,8 @@ LePage >> gtInspectBookmarkActionFor: anAction [
 		icon: BrGlamorousVectorIcons inspect;
 		target: LePageActionTarget;
 		menuItemGroup: BrMenuItemGroupConfiguration navigation;
-		action: [ :aButton | aButton phlow spawnObject: LeBookmarks new ]
+		action: [ :aButton | aButton phlow spawnObject: LeBookmarks new ];
+		primaryModifierAction: [ :aButton | aButton phlow showObject: LeBookmarks new ]
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
@@ -88,5 +99,8 @@ LePage >> gtMapForThisDatabaseFor: anAction [
 		menuItemGroup: BrMenuItemGroupConfiguration navigation;
 		action: [ :aButton | 
 			aButton phlow
-				spawnObject: (LeBookmarks new mapFor: GtMondrian new forDatabase: self database) ]
+				spawnObject: (LeBookmarks new mapFor: GtMondrian new forDatabase: self database) ];
+		primaryModifierAction: [ :aButton | 
+			aButton phlow
+				showObject: (LeBookmarks new mapFor: GtMondrian new forDatabase: self database) ]
 ]
