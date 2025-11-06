@@ -14,7 +14,7 @@ Class {
 	#category : #'GToolkit-Bookmarks-Model'
 }
 
-{ #category : #accessing }
+{ #category : #querying }
 LeBookmarks >> bookmark2Pages [
 	"Map from all private pages to external project pages."
 
@@ -30,7 +30,12 @@ LeBookmarks >> bookmark2Pages [
 						thenCollect: [ :l | l targetReference content ]) asSet ]) asDictionary
 ]
 
-{ #category : #accessing }
+{ #category : #querying }
+LeBookmarks >> bookmarkPageFor: aPage [
+	^ self primaryDB pageNamed: (self newBookmarkPageTitle: aPage)
+]
+
+{ #category : #querying }
 LeBookmarks >> bookmarkPages [
 	"Pages with external links."
 	^ (self bookmark2Pages associations
@@ -38,11 +43,20 @@ LeBookmarks >> bookmarkPages [
 		thenCollect: [ :bp | bp key ]) sortedAs: #title
 ]
 
-{ #category : #queries }
+{ #category : #querying }
 LeBookmarks >> bookmarksFor: aPage [
 	"Given an external project page, return the private pages that link to it."
 
 	^ (self page2Bookmarks at: aPage ifAbsent: Set empty) asOrderedCollection
+]
+
+{ #category : #updating }
+LeBookmarks >> ensureBookmarkFor: aPage [
+	"Return the page if it exists, else create it."
+
+	^ (self hasBookmarkPageFor: aPage)
+		ifTrue: [ self primaryDB pageNamed: (self bookmarkPageFor: aPage) ]
+		ifFalse: [ self primaryDB addPage: (self newBookmarkPageFor: aPage) ]
 ]
 
 { #category : #views }
@@ -95,29 +109,69 @@ LeBookmarks >> gtLinksFor: aView [
 ]
 
 { #category : #views }
+LeBookmarks >> gtPrimaryDBFor: aView [
+	"Only show the full primary DB for test cases."
+
+	<gtView>
+	self testDB ifNil: [ ^ aView empty ].
+	^ aView forward
+		title: 'Primary DB';
+		priority: 32;
+		object: [ self primaryDB ];
+		view: #gtLiveFor:
+]
+
+{ #category : #views }
 LeBookmarks >> gtTestDatabaseFor: aView [
 	<gtView>
 	self testDB ifNil: [ ^ aView empty ].
 	^ aView forward
 		title: 'Test database';
+		priority: 30;
 		object: [ self testDB ];
 		view: #gtLiveFor:
 ]
 
-{ #category : #queries }
+{ #category : #testing }
+LeBookmarks >> hasBookmarkPageFor: aPage [
+	| bookmarkPageTitle |
+	bookmarkPageTitle := self newBookmarkPageTitle: aPage.
+	^ self primaryDB hasPageNamed: bookmarkPageTitle
+]
+
+{ #category : #querying }
 LeBookmarks >> linkedPagesFor: aPage [
 	"Given a private page, return the exteranl pages it links to (bookmarks)."
 
 	^ self bookmark2Pages at: aPage ifAbsent: Set empty
 ]
 
-{ #category : #accessing }
+{ #category : #printing }
 LeBookmarks >> linkedPagesSummaryFor: aBookmarkPage [
 	^ self
 		summaryFor: ((self linkedPagesFor: aBookmarkPage) asOrderedCollection sortedAs: #title)
 ]
 
-{ #category : #accessing }
+{ #category : #updating }
+LeBookmarks >> newBookmarkPageFor: aPage [
+	"Creates the page but does not add it anywhere."
+
+	^ (LePage named: (self newBookmarkPageTitle: aPage))
+		addSnippet: (LeTextSnippet new
+				string: 'Bookmark for: ' , aPage asRemoteLink;
+				yourself);
+		addSnippet: (LeTextSnippet new
+				string: '*My notes ...*';
+				yourself);
+		yourself
+]
+
+{ #category : #updating }
+LeBookmarks >> newBookmarkPageTitle: aPage [
+	^ 'Bookmark for: ' , aPage title
+]
+
+{ #category : #querying }
 LeBookmarks >> page2Bookmarks [
 	"Reverse index of project pages to private ages that bookmark them.
 	Caveat: only bookmarked pages are keys."
@@ -142,7 +196,7 @@ LeBookmarks >> primaryDB: aDatabase [
 	primaryDB := aDatabase
 ]
 
-{ #category : #accessing }
+{ #category : #printing }
 LeBookmarks >> summaryFor: aPageCollection [
 	^ aPageCollection
 		ifEmpty: [ '-' ]

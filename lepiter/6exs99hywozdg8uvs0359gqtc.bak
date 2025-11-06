@@ -8,7 +8,45 @@
 				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
-					"items" : [ ]
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-11-05T13:40:34.053228+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-11-06T10:26:11.123067+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "YAHV/Tn/DQCk5LCdBTlbbA=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "feenkcom/gtoolkit#4806"
+						}
+					]
 				},
 				"createEmail" : {
 					"__type" : "email",
@@ -18,7 +56,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-11-05T13:40:34.053228+01:00"
+						"dateAndTimeString" : "2025-11-06T10:26:11.119621+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,17 +67,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-11-05T13:40:34.893126+01:00"
+						"dateAndTimeString" : "2025-11-06T10:26:11.119621+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "YAHV/Tn/DQCk5LCdBTlbbA=="
+					"uidString" : "NSKCZEv/DQCqVh8wCrmr0g=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Issue [#4806](https://github.com/feenkcom/gtoolkit/issues/4806)\nRepo [](https://github.com/feenkcom/gtoolkit-bookmarks)\nfeenkcom/gtoolkit#4806"
+				"string" : "Issue [#4806](https://github.com/feenkcom/gtoolkit/issues/4806)\nRepo [](https://github.com/feenkcom/gtoolkit-bookmarks)"
 			},
 			{
 				"__type" : "textSnippet",
@@ -421,74 +459,6 @@
 											"__type" : "textStyle"
 										},
 										"string" : "We introduce {{gtClass:name=InMemoryMockBookmarkDatabases}} to create the test databases and {{gtClass:name=LeBookmarksExamples}} for the test cases."
-									},
-									{
-										"__type" : "pharoSnippet",
-										"children" : {
-											"__type" : "snippets",
-											"items" : [ ]
-										},
-										"createEmail" : {
-											"__type" : "email",
-											"emailString" : "<unknown>"
-										},
-										"createTime" : {
-											"__type" : "time",
-											"time" : {
-												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-11-06T09:40:32.575112+01:00"
-											}
-										},
-										"editEmail" : {
-											"__type" : "email",
-											"emailString" : "<unknown>"
-										},
-										"editTime" : {
-											"__type" : "time",
-											"time" : {
-												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-11-06T10:25:59.634986+01:00"
-											}
-										},
-										"uid" : {
-											"__type" : "uid",
-											"uidString" : "qEZHwUr/DQCTKLCZCrmr0g=="
-										},
-										"code" : ""
-									},
-									{
-										"__type" : "pharoSnippet",
-										"children" : {
-											"__type" : "snippets",
-											"items" : [ ]
-										},
-										"createEmail" : {
-											"__type" : "email",
-											"emailString" : "<unknown>"
-										},
-										"createTime" : {
-											"__type" : "time",
-											"time" : {
-												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-11-06T10:08:40.264992+01:00"
-											}
-										},
-										"editEmail" : {
-											"__type" : "email",
-											"emailString" : "<unknown>"
-										},
-										"editTime" : {
-											"__type" : "time",
-											"time" : {
-												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2025-11-06T10:08:40.264992+01:00"
-											}
-										},
-										"uid" : {
-											"__type" : "uid",
-											"uidString" : "NV/fJUv/DQCnN7iTCrmr0g=="
-										},
-										"code" : ""
 									}
 								]
 							},
@@ -585,7 +555,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-11-06T09:38:35.273546+01:00"
+									"dateAndTimeString" : "2025-11-06T13:23:49.032229+01:00"
 								}
 							},
 							"uid" : {
@@ -595,7 +565,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : ""
+							"string" : "*To fix* — the cross database links do not work for the in-memory databases, so we cannot test this."
 						},
 						{
 							"__type" : "textSnippet",
