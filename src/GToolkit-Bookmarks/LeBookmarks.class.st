@@ -7,6 +7,10 @@ From a project page we can find which bookmarks exist, or create a new bookmark 
 Class {
 	#name : #LeBookmarks,
 	#superclass : #Object,
+	#instVars : [
+		'primaryDB',
+		'testDB'
+	],
 	#category : #'GToolkit-Bookmarks-Model'
 }
 
@@ -14,7 +18,7 @@ Class {
 LeBookmarks >> bookmark2Pages [
 	"Map from all private pages to external project pages."
 
-	^ ((LeDatabase primaryDB pages select: #isNamedPage)
+	^ ((self primaryDB pages select: #isNamedPage)
 		collect: [ :bp | 
 			bp
 				-> (bp allOutgoingExplicitLinks items
@@ -46,6 +50,7 @@ LeBookmarks >> gtBookmarksFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Bookmarks';
+		tooltip: 'Bookmarks are pages in your private Lepiter databasethat link to external project pages.';
 		priority: 10;
 		items: [ self bookmarkPages ];
 		column: 'Index'
@@ -58,7 +63,7 @@ LeBookmarks >> gtBookmarksFor: aView [
 			text: [ :each | (self linkedPagesFor: each) size ]
 			width: 100;
 		column: 'Bookmarks'
-			text: [ :each | (self linkedPagesSummaryFor: each)  ]
+			text: [ :each | self linkedPagesSummaryFor: each ]
 			width: 300;
 		actionUpdateButton
 ]
@@ -89,6 +94,16 @@ LeBookmarks >> gtLinksFor: aView [
 		actionUpdateButton
 ]
 
+{ #category : #views }
+LeBookmarks >> gtTestDatabaseFor: aView [
+	<gtView>
+	self testDB ifNil: [ ^ aView empty ].
+	^ aView forward
+		title: 'Test database';
+		object: [ self testDB ];
+		view: #gtLiveFor:
+]
+
 { #category : #queries }
 LeBookmarks >> linkedPagesFor: aPage [
 	"Given a private page, return the exteranl pages it links to (bookmarks)."
@@ -115,9 +130,35 @@ LeBookmarks >> page2Bookmarks [
 ]
 
 { #category : #accessing }
+LeBookmarks >> primaryDB [
+	^ primaryDB ifNil: [ primaryDB := LeDatabase primaryDB ]
+]
+
+{ #category : #accessing }
+LeBookmarks >> primaryDB: aDatabase [
+	"For testing purposes we can inject an in-memory database.
+	See LeBookmarksExamples."
+
+	primaryDB := aDatabase
+]
+
+{ #category : #accessing }
 LeBookmarks >> summaryFor: aPageCollection [
 	^ aPageCollection
 		ifEmpty: [ '-' ]
 		ifNotEmpty: [ aPageCollection first title
 				, (aPageCollection size > 1 ifTrue: [ ', ...' ] ifFalse: [ '' ]) ]
+]
+
+{ #category : #accessing }
+LeBookmarks >> testDB [
+	"A place to hold a source database for testing.
+	Not used for anythiung else."
+
+	^ testDB
+]
+
+{ #category : #accessing }
+LeBookmarks >> testDB: aDatabase [
+	testDB := aDatabase
 ]
