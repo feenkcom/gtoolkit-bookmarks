@@ -32,7 +32,12 @@ LeBookmarks >> bookmark2Pages [
 
 { #category : #querying }
 LeBookmarks >> bookmarkPageFor: aPage [
-	^ self primaryDB pageNamed: (self newBookmarkPageTitle: aPage)
+	^ self primaryDB pageNamed: (self bookmarkPageTitle: aPage)
+]
+
+{ #category : #updating }
+LeBookmarks >> bookmarkPageTitle: aPage [
+	^ 'Bookmark for: ' , aPage title
 ]
 
 { #category : #querying }
@@ -50,12 +55,19 @@ LeBookmarks >> bookmarksFor: aPage [
 	^ (self page2Bookmarks at: aPage ifAbsent: Set empty) asOrderedCollection
 ]
 
+{ #category : #querying }
+LeBookmarks >> bookmarksForDatabase: aDatabase [
+	^ (self bookmark2Pages associations
+		select: [ :bp | (bp value collect: #database) includes: aDatabase ]
+		thenCollect: [ :bp | bp key ]) sortedAs: #title
+]
+
 { #category : #updating }
 LeBookmarks >> ensureBookmarkFor: aPage [
 	"Return the page if it exists, else create it."
 
 	^ (self hasBookmarkPageFor: aPage)
-		ifTrue: [ self primaryDB pageNamed: (self newBookmarkPageTitle: aPage) ]
+		ifTrue: [ self primaryDB pageNamed: (self bookmarkPageTitle: aPage) ]
 		ifFalse: [ self primaryDB addPage: (self newBookmarkPageFor: aPage) ]
 ]
 
@@ -135,13 +147,13 @@ LeBookmarks >> gtTestDatabaseFor: aView [
 { #category : #testing }
 LeBookmarks >> hasBookmarkPageFor: aPage [
 	| bookmarkPageTitle |
-	bookmarkPageTitle := self newBookmarkPageTitle: aPage.
+	bookmarkPageTitle := self bookmarkPageTitle: aPage.
 	^ self primaryDB hasPageNamed: bookmarkPageTitle
 ]
 
 { #category : #querying }
 LeBookmarks >> linkedPagesFor: aPage [
-	"Given a private page, return the exteranl pages it links to (bookmarks)."
+	"Given a private page, return the external pages it links to (bookmarks)."
 
 	^ (self bookmark2Pages at: aPage ifAbsent: Set empty) asOrderedCollection
 ]
@@ -156,19 +168,14 @@ LeBookmarks >> linkedPagesSummaryFor: aBookmarkPage [
 LeBookmarks >> newBookmarkPageFor: aPage [
 	"Creates the page but does not add it anywhere."
 
-	^ (LePage named: (self newBookmarkPageTitle: aPage))
+	^ (LePage named: (self bookmarkPageTitle: aPage))
 		addSnippet: (LeTextSnippet new
 				string: 'Bookmark for: ' , aPage asRemoteLink;
 				yourself);
 		addSnippet: (LeTextSnippet new
-				string: '*My notes ...*';
+				string: '*Add your notes here. You can freely change the title and contents of this page, or delete the page if you no longer need the bookmark. However if you delete the link, this bookmark will no longer reference the bookmarked page.*';
 				yourself);
 		yourself
-]
-
-{ #category : #updating }
-LeBookmarks >> newBookmarkPageTitle: aPage [
-	^ 'Bookmark for: ' , aPage title
 ]
 
 { #category : #querying }

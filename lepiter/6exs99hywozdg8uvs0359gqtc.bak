@@ -104,7 +104,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-11-06T15:28:43.120103+01:00"
+						"dateAndTimeString" : "2025-11-06T17:15:51.661578+01:00"
 					}
 				},
 				"uid" : {
@@ -114,7 +114,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "***TL;DR*** We reimplement the prototypes, introducing a {{gtClass:name=LeBookmarks}} object that dynamically computes the bookmarks, without any singleton or updating of maps."
+				"string" : "***TL;DR*** We reimplement the prototypes, introducing a {{gtClass:name=LeBookmarks}} object that dynamically computes the bookmarks, without any singleton or updating of maps. Includes various {{gtClass:name=LePage}} extensions."
 			},
 			{
 				"__type" : "textSnippet",
@@ -693,6 +693,80 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-11-06T17:15:00.34046+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-11-06T17:15:03.367932+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "b1eQGlH/DQC3M60KDiIp5A=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Update the new bookmark page default text. "
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-11-06T17:15:01.945844+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-11-06T17:15:01.945844+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "1tWoGlH/DQC3O6iNDiIp5A=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Add a Mondrian map?"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
 									"dateAndTimeString" : "2025-11-05T13:42:09.123092+01:00"
 								}
 							},
@@ -704,7 +778,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-11-05T13:42:09.123092+01:00"
+									"dateAndTimeString" : "2025-11-06T17:15:01.948943+01:00"
 								}
 							},
 							"uid" : {
@@ -741,7 +815,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-11-06T15:49:32.738805+01:00"
+									"dateAndTimeString" : "2025-11-06T15:49:37.326071+01:00"
 								}
 							},
 							"uid" : {
@@ -751,7 +825,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Add a SPotter search."
+							"string" : "Add a Spotter search."
 						},
 						{
 							"__type" : "textSnippet",

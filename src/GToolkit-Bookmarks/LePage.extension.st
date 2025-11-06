@@ -33,6 +33,22 @@ LePage >> gtBookmarksFor: anAction [
 ]
 
 { #category : #'*GToolkit-Bookmarks' }
+LePage >> gtBookmarksForThisDatabaseFor: anAction [
+	<gtAction>
+	| bookmarks |
+	bookmarks := LeBookmarks new bookmarksForDatabase: self database.
+	bookmarks ifEmpty: [ ^ anAction empty ].
+	self database isPrimary ifTrue: [ ^ anAction empty ].
+	^ anAction button
+		tooltip: 'All (' , bookmarks size printString , ') bookmarks for this database';
+		priority: 22;
+		icon: LeIcons lepiterDatabase;
+		target: LePageActionTarget;
+		menuItemGroup: BrMenuItemGroupConfiguration navigation;
+		action: [ :aButton | aButton phlow spawnObject: (LePages new items: (bookmarks sortedAs: #title)) ]
+]
+
+{ #category : #'*GToolkit-Bookmarks' }
 LePage >> gtCreateBookmarkActionFor: anAction [
 	<gtAction>
 	self database isPrimary ifTrue: [ ^ anAction empty ].
@@ -52,7 +68,7 @@ LePage >> gtCreateBookmarkActionFor: anAction [
 LePage >> gtInspectBookmarkActionFor: anAction [
 	<gtAction>
 	^ anAction button
-		tooltip: 'Inspect all bookmarks';
+		tooltip: 'All bookmarks';
 		priority: 40;
 		icon: BrGlamorousVectorIcons inspect;
 		target: LePageActionTarget;
