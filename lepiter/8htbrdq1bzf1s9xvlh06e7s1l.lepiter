@@ -435,7 +435,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-11-06T15:25:34.296795+01:00"
+						"dateAndTimeString" : "2025-11-07T09:49:53.825243+01:00"
 					}
 				},
 				"uid" : {
@@ -445,7 +445,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "***To do:*** see [[First prototype]]"
+				"string" : "***To do:*** see [[LeBookmarks — dynamically computing bookmarks]]"
 			}
 		]
 	},

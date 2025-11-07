@@ -435,7 +435,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2025-11-06T15:22:20.180491+01:00"
+						"dateAndTimeString" : "2025-11-06T15:25:34.296795+01:00"
 					}
 				},
 				"uid" : {
@@ -445,7 +445,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "***To do:*** see [[First prototype (obsolete)]]"
+				"string" : "***To do:*** see [[First prototype]]"
 			}
 		]
 	},
