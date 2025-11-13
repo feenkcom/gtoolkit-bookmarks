@@ -10,6 +10,7 @@ Class {
 { #category : #'as yet unclassified' }
 LeBookmarksExamples >> emptyBookmarks [
 	<gtExample>
+	<return: #LeBookmarks>
 	| databases bookmarks primaryDB testDB |
 	databases := InMemoryMockBookmarkDatabases new.
 	primaryDB := databases bookmarkDatabase.
@@ -31,6 +32,7 @@ LeBookmarksExamples >> gtPageGetsBookmark [
 	"NB: for the volatile databases, the cross database links are not working."
 
 	<gtExample>
+	<return: #LeBookmarks>
 	| bookmarks page newPage |
 	bookmarks := self emptyBookmarks.
 	page := bookmarks testDB pageNamed: 'Glamorous Toolkit'.	"Here we need to add a bookmark."
@@ -45,6 +47,7 @@ LeBookmarksExamples >> gtPageGetsBookmark [
 { #category : #'as yet unclassified' }
 LeBookmarksExamples >> page1DeletesBookmark [
 	<gtExample>
+	<return: #LeBookmarks>
 	| bookmarks page bookmarkPage |
 	bookmarks := self page2GetsBookmark.
 	page := bookmarks testDB pageNamed: 'Page 1'.
@@ -62,6 +65,7 @@ LeBookmarksExamples >> page1GetsBookmark [
 	"NB: for the volatile databases, the cross database links are not working."
 
 	<gtExample>
+	<return: #LeBookmarks>
 	| bookmarks page newPage |
 	bookmarks := self gtPageGetsBookmark.
 	page := bookmarks testDB pageNamed: 'Page 1'.
@@ -78,6 +82,7 @@ LeBookmarksExamples >> page2GetsBookmark [
 	"NB: for the volatile databases, the cross database links are not working."
 
 	<gtExample>
+	<return: #LeBookmarks>
 	| bookmarks page newPage |
 	bookmarks := self page1GetsBookmark.
 	page := bookmarks testDB pageNamed: 'Page 2'.
